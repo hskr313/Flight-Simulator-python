@@ -2,7 +2,7 @@
 
 Ce projet est un simulateur de vol et un système de réservation d'avions, réalisé dans le cadre d'un projet universitaire par deux étudiants. Il permet aux utilisateurs de réserver des billets d'avion et de vivre une expérience de simulation de vol. Il prend en charge deux types d'avions : les avions de ligne (que les utilisateurs peuvent réserver) et les avions marchand (que les administrateurs peuvent créer et réserver).
 
-> **Note :** Les contributeurs du projet sont **@hskr313** et **@PseudoDuContributeur**.
+> **Note :** Les contributeurs du projet sont **@hskr313** et **@djtoters**.
 
 ## 🚀 Caractéristiques principales
 
