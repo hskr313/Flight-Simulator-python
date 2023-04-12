@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="437" height="782" viewBox="0 0 437 782" xmlns="http://www.w3.org/2000/svg">
+<rect id="frame" x="0" y="0" width="437" height="782" fill="#f5f5f5" stroke="none" stroke-width="0"/>
+
+<!-- Association XT0 -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<line x1="113" y1="216" x2="113" y2="90" stroke="#bf812d" stroke-width="2"/>
+	<text x="118" y="132" fill="#01665e" font-family="Verdana" font-size="12">     </text>
+	<polygon points="113 140 107 128 113 132 119 128" fill="#bf812d" stroke-width="0"/>
+	<line x1="30" y1="90" x2="113" y2="90" stroke="#bf812d" stroke-width="2"/>
+	<text x="56" y="107" fill="#01665e" font-family="Verdana" font-size="12">     </text>
+	<line x1="113" y1="26" x2="113" y2="90" stroke="#bf812d" stroke-width="2"/>
+	<text x="118" y="60" fill="#01665e" font-family="Verdana" font-size="12">     </text>
+	<g>
+		<polygon points="113 64.6 91 102.7 135 102.7" stroke="#bf812d" stroke-width="2" fill="#dfc27d"/>
+		<text x="105" y="95" fill="#000" font-family="Verdana" font-size="12">XT</text>
+	</g>
+</g>
+
+<!-- Association reserver -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<line x1="113" y1="216" x2="113" y2="342" stroke="#bf812d" stroke-width="2"/>
+	<text x="118" y="309" fill="#01665e" font-family="Verdana" font-size="12">1,N</text>
+	<line x1="113" y1="477" x2="113" y2="342" stroke="#bf812d" stroke-width="2"/>
+	<text x="118" y="384" fill="#01665e" font-family="Verdana" font-size="12">1,1</text>
+	<g>
+		<path d="M132 317 a14 14 90 0 1 14 14 V342 h-66 V331 a14 14 90 0 1 14 -14" fill="#dfc27d" stroke="#dfc27d" stroke-width="0"/>
+		<path d="M146 342 v11 a14 14 90 0 1 -14 14 H94 a14 14 90 0 1 -14 -14 V342 H66" fill="#f6e8c3" stroke="#f6e8c3" stroke-width="0"/>
+		<rect x="80" y="317" width="66" height="50" fill="none" rx="14" stroke="#bf812d" stroke-width="2"/>
+		<line x1="80" y1="342" x2="146" y2="342" stroke="#bf812d" stroke-width="1"/>
+		<text x="88" y="334.75" fill="#000" font-family="Verdana" font-size="12">reserver</text>
+	</g>
+</g>
+
+<!-- Association Porter -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<line x1="113" y1="477" x2="222" y2="477" stroke="#bf812d" stroke-width="2"/>
+	<text x="169" y="494" fill="#01665e" font-family="Verdana" font-size="12">1,1</text>
+	<line x1="222" y1="638" x2="222" y2="477" stroke="#bf812d" stroke-width="2"/>
+	<text x="227" y="579" fill="#01665e" font-family="Verdana" font-size="12">0,N</text>
+	<g>
+		<path d="M234 452 a14 14 90 0 1 14 14 V477 h-52 V466 a14 14 90 0 1 14 -14" fill="#dfc27d" stroke="#dfc27d" stroke-width="0"/>
+		<path d="M248 477 v11 a14 14 90 0 1 -14 14 H210 a14 14 90 0 1 -14 -14 V477 H52" fill="#f6e8c3" stroke="#f6e8c3" stroke-width="0"/>
+		<rect x="196" y="452" width="52" height="50" fill="none" rx="14" stroke="#bf812d" stroke-width="2"/>
+		<line x1="196" y1="477" x2="248" y2="477" stroke="#bf812d" stroke-width="1"/>
+		<text x="203" y="469.75" fill="#000" font-family="Verdana" font-size="12">Porter</text>
+	</g>
+</g>
+
+<!-- Association Atterir -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<line x1="222" y1="638" x2="113" y2="638" stroke="#bf812d" stroke-width="2"/>
+	<text x="162" y="655" fill="#01665e" font-family="Verdana" font-size="12">0,1</text>
+	<line x1="113" y1="739" x2="113" y2="638" stroke="#bf812d" stroke-width="2"/>
+	<text x="118" y="697" fill="#01665e" font-family="Verdana" font-size="12">0,N</text>
+	<g>
+		<path d="M126 613 a14 14 90 0 1 14 14 V638 h-54 V627 a14 14 90 0 1 14 -14" fill="#dfc27d" stroke="#dfc27d" stroke-width="0"/>
+		<path d="M140 638 v11 a14 14 90 0 1 -14 14 H100 a14 14 90 0 1 -14 -14 V638 H54" fill="#f6e8c3" stroke="#f6e8c3" stroke-width="0"/>
+		<rect x="86" y="613" width="54" height="50" fill="none" rx="14" stroke="#bf812d" stroke-width="2"/>
+		<line x1="86" y1="638" x2="140" y2="638" stroke="#bf812d" stroke-width="1"/>
+		<text x="94" y="630.75" fill="#000" font-family="Verdana" font-size="12">Atterir</text>
+	</g>
+</g>
+
+<!-- Association XT1 -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<line x1="222" y1="638" x2="354" y2="638" stroke="#bf812d" stroke-width="2"/>
+	<text x="261" y="655" fill="#01665e" font-family="Verdana" font-size="12">     </text>
+	<polygon points="256 638 268 632 264 638 268 644" fill="#bf812d" stroke-width="0"/>
+	<line x1="354" y1="739" x2="354" y2="638" stroke="#bf812d" stroke-width="2"/>
+	<text x="359" y="714" fill="#01665e" font-family="Verdana" font-size="12">     </text>
+	<line x1="354" y1="477" x2="354" y2="638" stroke="#bf812d" stroke-width="2"/>
+	<text x="359" y="528" fill="#01665e" font-family="Verdana" font-size="12">     </text>
+	<g>
+		<polygon points="354 612.6 332 650.7 376 650.7" stroke="#bf812d" stroke-width="2" fill="#dfc27d"/>
+		<text x="346" y="643" fill="#000" font-family="Verdana" font-size="12">XT</text>
+	</g>
+</g>
+
+<!-- Association Decoller -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<line x1="222" y1="638" x2="222" y2="739" stroke="#bf812d" stroke-width="2"/>
+	<text x="227" y="706" fill="#01665e" font-family="Verdana" font-size="12">0,1</text>
+	<line x1="113" y1="739" x2="222" y2="739" stroke="#bf812d" stroke-width="2"/>
+	<text x="150" y="756" fill="#01665e" font-family="Verdana" font-size="12">0,N</text>
+	<g>
+		<path d="M240 714 a14 14 90 0 1 14 14 V739 h-64 V728 a14 14 90 0 1 14 -14" fill="#dfc27d" stroke="#dfc27d" stroke-width="0"/>
+		<path d="M254 739 v11 a14 14 90 0 1 -14 14 H204 a14 14 90 0 1 -14 -14 V739 H64" fill="#f6e8c3" stroke="#f6e8c3" stroke-width="0"/>
+		<rect x="190" y="714" width="64" height="50" fill="none" rx="14" stroke="#bf812d" stroke-width="2"/>
+		<line x1="190" y1="739" x2="254" y2="739" stroke="#bf812d" stroke-width="1"/>
+		<text x="197" y="731.75" fill="#000" font-family="Verdana" font-size="12">Decoller</text>
+	</g>
+</g>
+
+<!-- Entity Admin -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<g>
+		<rect x="88" y="9" width="50" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0" opacity="1"/>
+		<rect x="88" y="34" width="50" height="9" fill="#c7eae5" stroke="#c7eae5" stroke-width="0" opacity="1"/>
+		<rect x="88" y="9" width="50" height="34" fill="none" stroke="#35978f" stroke-width="2" opacity="1"/>
+		<line x1="88" y1="34" x2="138" y2="34" stroke="#35978f" stroke-width="1"/>
+	</g>
+	<text x="94" y="26.75" fill="#000" font-family="Verdana" font-size="12">Admin</text>
+</g>
+
+<!-- Entity User -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<g>
+		<rect x="9" y="65" width="42" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0" opacity="1"/>
+		<rect x="9" y="90" width="42" height="25" fill="#c7eae5" stroke="#c7eae5" stroke-width="0" opacity="1"/>
+		<rect x="9" y="65" width="42" height="50" fill="none" stroke="#35978f" stroke-width="2" opacity="1"/>
+		<line x1="9" y1="90" x2="51" y2="90" stroke="#35978f" stroke-width="1"/>
+	</g>
+	<text x="16" y="82.75" fill="#000" font-family="Verdana" font-size="12">User</text>
+	<text x="14" y="107.8" fill="#000" font-family="Verdana" font-size="12">solde</text>
+</g>
+
+<!-- Entity Personne -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<g>
+		<rect x="80" y="140" width="66" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0" opacity="1"/>
+		<rect x="80" y="165" width="66" height="127" fill="#c7eae5" stroke="#c7eae5" stroke-width="0" opacity="1"/>
+		<rect x="80" y="140" width="66" height="152" fill="none" stroke="#35978f" stroke-width="2" opacity="1"/>
+		<line x1="80" y1="165" x2="146" y2="165" stroke="#35978f" stroke-width="1"/>
+	</g>
+	<text x="85" y="157.75" fill="#000" font-family="Verdana" font-size="12">Personne</text>
+	<text x="85" y="182.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="85" y1="185" x2="97" y2="185" stroke="#000" stroke-width="1"/>
+	<text x="85" y="199.8" fill="#000" font-family="Verdana" font-size="12">nom</text>
+	<text x="85" y="216.8" fill="#000" font-family="Verdana" font-size="12">prenom</text>
+	<text x="85" y="233.8" fill="#000" font-family="Verdana" font-size="12">adresse</text>
+	<text x="85" y="250.8" fill="#000" font-family="Verdana" font-size="12">email</text>
+	<text x="85" y="267.8" fill="#000" font-family="Verdana" font-size="12">pwd</text>
+	<text x="85" y="284.8" fill="#000" font-family="Verdana" font-size="12">gsm</text>
+</g>
+
+<!-- Entity Vol -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<g>
+		<rect x="62" y="392" width="102" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0" opacity="1"/>
+		<rect x="62" y="417" width="102" height="145" fill="#c7eae5" stroke="#c7eae5" stroke-width="0" opacity="1"/>
+		<rect x="62" y="392" width="102" height="170" fill="none" stroke="#35978f" stroke-width="2" opacity="1"/>
+		<line x1="62" y1="417" x2="164" y2="417" stroke="#35978f" stroke-width="1"/>
+	</g>
+	<text x="103" y="409.75" fill="#000" font-family="Verdana" font-size="12">Vol</text>
+	<text x="67" y="434.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="67" y1="437" x2="79" y2="437" stroke="#000" stroke-width="1"/>
+	<text x="67" y="451.8" fill="#000" font-family="Verdana" font-size="12">date depart</text>
+	<text x="67" y="468.8" fill="#000" font-family="Verdana" font-size="12">date depart off</text>
+	<text x="67" y="485.8" fill="#000" font-family="Verdana" font-size="12">date arrivé</text>
+	<text x="67" y="502.8" fill="#000" font-family="Verdana" font-size="12">date arrivé off</text>
+	<text x="67" y="519.8" fill="#000" font-family="Verdana" font-size="12">destination</text>
+	<text x="67" y="536.8" fill="#000" font-family="Verdana" font-size="12">temps de vol</text>
+	<text x="67" y="553.8" fill="#000" font-family="Verdana" font-size="12">prix</text>
+</g>
+
+<!-- Entity Avion de Ligne -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<g>
+		<rect x="280" y="443" width="148" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0" opacity="1"/>
+		<rect x="280" y="468" width="148" height="43" fill="#c7eae5" stroke="#c7eae5" stroke-width="0" opacity="1"/>
+		<rect x="280" y="443" width="148" height="68" fill="none" stroke="#35978f" stroke-width="2" opacity="1"/>
+		<line x1="280" y1="468" x2="428" y2="468" stroke="#35978f" stroke-width="1"/>
+	</g>
+	<text x="309" y="460.75" fill="#000" font-family="Verdana" font-size="12">Avion de Ligne</text>
+	<text x="285" y="485.8" fill="#000" font-family="Verdana" font-size="12">Nombre max passager</text>
+	<text x="285" y="502.8" fill="#000" font-family="Verdana" font-size="12">poids max passager</text>
+</g>
+
+<!-- Entity Avion -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<g>
+		<rect x="188" y="587" width="68" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0" opacity="1"/>
+		<rect x="188" y="612" width="68" height="77" fill="#c7eae5" stroke="#c7eae5" stroke-width="0" opacity="1"/>
+		<rect x="188" y="587" width="68" height="102" fill="none" stroke="#35978f" stroke-width="2" opacity="1"/>
+		<line x1="188" y1="612" x2="256" y2="612" stroke="#35978f" stroke-width="1"/>
+	</g>
+	<text x="205" y="604.75" fill="#000" font-family="Verdana" font-size="12">Avion</text>
+	<text x="193" y="629.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="193" y1="632" x2="205" y2="632" stroke="#000" stroke-width="1"/>
+	<text x="193" y="646.8" fill="#000" font-family="Verdana" font-size="12">poid max</text>
+	<text x="193" y="663.8" fill="#000" font-family="Verdana" font-size="12">modele</text>
+	<text x="193" y="680.8" fill="#000" font-family="Verdana" font-size="12">vitesse</text>
+</g>
+
+<!-- Entity Aeroport -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<g>
+		<rect x="81" y="705" width="64" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0" opacity="1"/>
+		<rect x="81" y="730" width="64" height="43" fill="#c7eae5" stroke="#c7eae5" stroke-width="0" opacity="1"/>
+		<rect x="81" y="705" width="64" height="68" fill="none" stroke="#35978f" stroke-width="2" opacity="1"/>
+		<line x1="81" y1="730" x2="145" y2="730" stroke="#35978f" stroke-width="1"/>
+	</g>
+	<text x="87" y="722.75" fill="#000" font-family="Verdana" font-size="12">Aeroport</text>
+	<text x="86" y="747.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="86" y1="750" x2="98" y2="750" stroke="#000" stroke-width="1"/>
+	<text x="86" y="764.8" fill="#000" font-family="Verdana" font-size="12">adresse</text>
+</g>
+
+<!-- Entity Marchand -->
+<g class="page_0_9t7AmDxA diagram_page" visibility="visible">
+	<g>
+		<rect x="319" y="722" width="70" height="25" fill="#80cdc1" stroke="#80cdc1" stroke-width="0" opacity="1"/>
+		<rect x="319" y="747" width="70" height="9" fill="#c7eae5" stroke="#c7eae5" stroke-width="0" opacity="1"/>
+		<rect x="319" y="722" width="70" height="34" fill="none" stroke="#35978f" stroke-width="2" opacity="1"/>
+		<line x1="319" y1="747" x2="389" y2="747" stroke="#35978f" stroke-width="1"/>
+	</g>
+	<text x="324" y="739.75" fill="#000" font-family="Verdana" font-size="12">Marchand</text>
+</g>
+</svg>
