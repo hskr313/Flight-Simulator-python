@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="684" height="665" viewBox="0 0 684 665" xmlns="http://www.w3.org/2000/svg">
+<rect id="frame" x="0" y="0" width="684" height="665" fill="#ffffbf" stroke="none" stroke-width="0"/>
+
+<!-- Association  -->
+<g>
+	<line x1="410" y1="227" x2="410" y2="109" stroke="#66c2a5" stroke-width="2"/>
+	<text x="415" y="151" fill="#d53e4f" font-family="Verdana" font-size="12">     </text>
+	<polygon points="410 159 404 147 410 151 416 147" fill="#66c2a5" stroke-width="0"/>
+	<line x1="286" y1="109" x2="410" y2="109" stroke="#66c2a5" stroke-width="2"/>
+	<text x="350" y="126" fill="#d53e4f" font-family="Verdana" font-size="12">     </text>
+	<line x1="410" y1="34" x2="410" y2="109" stroke="#66c2a5" stroke-width="2"/>
+	<text x="415" y="76" fill="#d53e4f" font-family="Verdana" font-size="12">     </text>
+	<g>
+		<polygon points="410 83.6 388 121.7 432 121.7" stroke="#66c2a5" stroke-width="2" fill="#abdda4"/>
+		<text x="410" y="114" fill="#000" font-family="Verdana" font-size="12"></text>
+	</g>
+</g>
+
+<!-- Association Consists -->
+<g>
+	<line x1="410" y1="454" x2="286" y2="227" stroke="#66c2a5" stroke-width="2"/>
+	<text x="378.52" y="387" fill="#d53e4f" font-family="Verdana" font-size="12">1,N</text>
+	<line x1="168" y1="227" x2="286" y2="227" stroke="#66c2a5" stroke-width="2"/>
+	<text x="226" y="244" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+	<g>
+		<path d="M305 202 a14 14 90 0 1 14 14 V227 h-66 V216 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M319 227 v11 a14 14 90 0 1 -14 14 H267 a14 14 90 0 1 -14 -14 V227 H66" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="253" y="202" width="66" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="253" y1="227" x2="319" y2="227" stroke="#66c2a5" stroke-width="1"/>
+		<text x="261" y="219.75" fill="#000" font-family="Verdana" font-size="12">Consists</text>
+	</g>
+</g>
+
+<!-- Association Land I -->
+<g>
+	<line x1="168" y1="227" x2="62" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="120.65" y="295" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+	<line x1="168" y1="454" x2="62" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="112" y="434.25" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<g>
+		<path d="M75 320 a14 14 90 0 1 14 14 V345 h-54 V334 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M89 345 v11 a14 14 90 0 1 -14 14 H49 a14 14 90 0 1 -14 -14 V345 H54" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="35" y="320" width="54" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="35" y1="345" x2="89" y2="345" stroke="#66c2a5" stroke-width="1"/>
+		<text x="43" y="337.75" fill="#000" font-family="Verdana" font-size="12">Land I</text>
+	</g>
+</g>
+
+<!-- Association Take Off I -->
+<g>
+	<line x1="168" y1="227" x2="168" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="173" y="295" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+	<line x1="168" y1="454" x2="168" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="173" y="404" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<g>
+		<path d="M192 320 a14 14 90 0 1 14 14 V345 h-76 V334 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M206 345 v11 a14 14 90 0 1 -14 14 H144 a14 14 90 0 1 -14 -14 V345 H76" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="130" y="320" width="76" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="130" y1="345" x2="206" y2="345" stroke="#66c2a5" stroke-width="1"/>
+		<text x="138" y="337.75" fill="#000" font-family="Verdana" font-size="12">Take Off I</text>
+	</g>
+</g>
+
+<!-- Association Take Off -->
+<g>
+	<line x1="168" y1="454" x2="286" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="202" y="437.54" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<line x1="410" y1="454" x2="286" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="330" y="417.98" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<g>
+		<path d="M305 320 a14 14 90 0 1 14 14 V345 h-66 V334 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M319 345 v11 a14 14 90 0 1 -14 14 H267 a14 14 90 0 1 -14 -14 V345 H66" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="253" y="320" width="66" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="253" y1="345" x2="319" y2="345" stroke="#66c2a5" stroke-width="1"/>
+		<text x="260" y="337.75" fill="#000" font-family="Verdana" font-size="12">Take Off</text>
+	</g>
+</g>
+
+<!-- Association Perform -->
+<g>
+	<line x1="410" y1="227" x2="410" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="415" y="312" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<line x1="410" y1="454" x2="410" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="415" y="387" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+	<g>
+		<path d="M428 320 a14 14 90 0 1 14 14 V345 h-64 V334 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M442 345 v11 a14 14 90 0 1 -14 14 H392 a14 14 90 0 1 -14 -14 V345 H64" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="378" y="320" width="64" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="378" y1="345" x2="442" y2="345" stroke="#66c2a5" stroke-width="1"/>
+		<text x="386" y="337.75" fill="#000" font-family="Verdana" font-size="12">Perform</text>
+	</g>
+</g>
+
+<!-- Association Fly -->
+<g>
+	<line x1="622" y1="345" x2="521" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="542" y="362" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<line x1="410" y1="454" x2="521" y2="345" stroke="#66c2a5" stroke-width="2"/>
+	<text x="468" y="411.97" fill="#d53e4f" font-family="Verdana" font-size="12">1,N</text>
+	<g>
+		<path d="M523 320 a14 14 90 0 1 14 14 V345 h-32 V334 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M537 345 v11 a14 14 90 0 1 -14 14 H519 a14 14 90 0 1 -14 -14 V345 H32" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="505" y="320" width="32" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="505" y1="345" x2="537" y2="345" stroke="#66c2a5" stroke-width="1"/>
+		<text x="512" y="337.75" fill="#000" font-family="Verdana" font-size="12">Fly</text>
+	</g>
+</g>
+
+<!-- Association Land -->
+<g>
+	<line x1="168" y1="454" x2="286" y2="454" stroke="#66c2a5" stroke-width="2"/>
+	<text x="202" y="471" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<line x1="410" y1="454" x2="286" y2="454" stroke="#66c2a5" stroke-width="2"/>
+	<text x="330" y="471" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<g>
+		<path d="M294 429 a14 14 90 0 1 14 14 V454 h-44 V443 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M308 454 v11 a14 14 90 0 1 -14 14 H278 a14 14 90 0 1 -14 -14 V454 H44" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="264" y="429" width="44" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="264" y1="454" x2="308" y2="454" stroke="#66c2a5" stroke-width="1"/>
+		<text x="271" y="446.75" fill="#000" font-family="Verdana" font-size="12">Land</text>
+	</g>
+</g>
+
+<!-- Association 1 -->
+<g>
+	<line x1="622" y1="580" x2="622" y2="454" stroke="#66c2a5" stroke-width="2"/>
+	<text x="627" y="496" fill="#d53e4f" font-family="Verdana" font-size="12">     </text>
+	<polygon points="622 504 616 492 622 496 628 492" fill="#66c2a5" stroke-width="0"/>
+	<line x1="622" y1="345" x2="622" y2="454" stroke="#66c2a5" stroke-width="2"/>
+	<text x="627" y="387" fill="#d53e4f" font-family="Verdana" font-size="12">     </text>
+	<g>
+		<polygon points="622 428.6 600 466.7 644 466.7" stroke="#66c2a5" stroke-width="2" fill="#abdda4"/>
+		<text x="622" y="459" fill="#000" font-family="Verdana" font-size="12"></text>
+	</g>
+</g>
+
+<!-- Association Own -->
+<g>
+	<line x1="168" y1="454" x2="168" y2="580" stroke="#66c2a5" stroke-width="2"/>
+	<text x="173" y="513" fill="#d53e4f" font-family="Verdana" font-size="12">1,N</text>
+	<line x1="62" y1="580" x2="168" y2="580" stroke="#66c2a5" stroke-width="2"/>
+	<text x="120" y="597" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+	<g>
+		<path d="M175 555 a14 14 90 0 1 14 14 V580 h-42 V569 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M189 580 v11 a14 14 90 0 1 -14 14 H161 a14 14 90 0 1 -14 -14 V580 H42" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="147" y="555" width="42" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="147" y1="580" x2="189" y2="580" stroke="#66c2a5" stroke-width="1"/>
+		<text x="154" y="572.75" fill="#000" font-family="Verdana" font-size="12">Own</text>
+	</g>
+</g>
+
+<!-- Association Concerns -->
+<g>
+	<line x1="410" y1="580" x2="286" y2="580" stroke="#66c2a5" stroke-width="2"/>
+	<text x="328" y="597" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+	<line x1="410" y1="454" x2="286" y2="580" stroke="#66c2a5" stroke-width="2"/>
+	<text x="330" y="506.85" fill="#d53e4f" font-family="Verdana" font-size="12">1,N</text>
+	<g>
+		<path d="M308 555 a14 14 90 0 1 14 14 V580 h-72 V569 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M322 580 v11 a14 14 90 0 1 -14 14 H264 a14 14 90 0 1 -14 -14 V580 H72" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="250" y="555" width="72" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="250" y1="580" x2="322" y2="580" stroke="#66c2a5" stroke-width="1"/>
+		<text x="258" y="572.75" fill="#000" font-family="Verdana" font-size="12">Concerns</text>
+	</g>
+</g>
+
+<!-- Association Book -->
+<g>
+	<line x1="622" y1="580" x2="521" y2="580" stroke="#66c2a5" stroke-width="2"/>
+	<text x="557" y="597" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+	<line x1="410" y1="580" x2="521" y2="580" stroke="#66c2a5" stroke-width="2"/>
+	<text x="471" y="597" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+	<g>
+		<path d="M530 555 a14 14 90 0 1 14 14 V580 h-46 V569 a14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+		<path d="M544 580 v11 a14 14 90 0 1 -14 14 H512 a14 14 90 0 1 -14 -14 V580 H46" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+		<rect x="498" y="555" width="46" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+		<line x1="498" y1="580" x2="544" y2="580" stroke="#66c2a5" stroke-width="1"/>
+		<text x="506" y="572.75" fill="#000" font-family="Verdana" font-size="12">Book</text>
+	</g>
+</g>
+
+<!-- Entity CargoAircraft -->
+<g>
+	<g>
+		<rect x="364" y="9" width="92" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="364" y="34" width="92" height="25" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="364" y="9" width="92" height="50" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="364" y1="34" x2="456" y2="34" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="370" y="26.75" fill="#000" font-family="Verdana" font-size="12">CargoAircraft</text>
+	<text x="369" y="51.8" fill="#000" font-family="Verdana" font-size="12">capacity</text>
+</g>
+
+<!-- Entity PassangerAircraft -->
+<g>
+	<g>
+		<rect x="227" y="84" width="118" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="227" y="109" width="118" height="25" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="227" y="84" width="118" height="50" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="227" y1="109" x2="345" y2="109" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="233" y="101.75" fill="#000" font-family="Verdana" font-size="12">PassangerAircraft</text>
+	<text x="232" y="126.8" fill="#000" font-family="Verdana" font-size="12">number_of_seats</text>
+</g>
+
+<!-- Entity Itinerary -->
+<g>
+	<g>
+		<rect x="115" y="176" width="106" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="115" y="201" width="106" height="77" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="115" y="176" width="106" height="102" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="115" y1="201" x2="221" y2="201" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="142" y="193.75" fill="#000" font-family="Verdana" font-size="12">Itinerary</text>
+	<text x="120" y="218.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="120" y1="221" x2="132" y2="221" stroke="#000" stroke-width="1"/>
+	<text x="120" y="235.8" fill="#000" font-family="Verdana" font-size="12">departure_time</text>
+	<text x="120" y="252.8" fill="#000" font-family="Verdana" font-size="12">arrival_time</text>
+	<text x="120" y="269.8" fill="#000" font-family="Verdana" font-size="12">distance</text>
+</g>
+
+<!-- Entity Aircraft -->
+<g>
+	<g>
+		<rect x="356" y="159" width="108" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="356" y="184" width="108" height="111" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="356" y="159" width="108" height="136" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="356" y1="184" x2="464" y2="184" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="388" y="176.75" fill="#000" font-family="Verdana" font-size="12">Aircraft</text>
+	<text x="361" y="201.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="361" y1="204" x2="373" y2="204" stroke="#000" stroke-width="1"/>
+	<text x="361" y="218.8" fill="#000" font-family="Verdana" font-size="12">model</text>
+	<text x="361" y="235.8" fill="#000" font-family="Verdana" font-size="12">status</text>
+	<text x="361" y="252.8" fill="#000" font-family="Verdana" font-size="12">company_name</text>
+	<text x="361" y="269.8" fill="#000" font-family="Verdana" font-size="12">max_speed</text>
+	<text x="361" y="286.8" fill="#000" font-family="Verdana" font-size="12">fuel_tank</text>
+</g>
+
+<!-- Entity Pilot -->
+<g>
+	<g>
+		<rect x="569" y="320" width="106" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="569" y="345" width="106" height="25" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="569" y="320" width="106" height="50" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="569" y1="345" x2="675" y2="345" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="609" y="337.75" fill="#000" font-family="Verdana" font-size="12">Pilot</text>
+	<text x="574" y="362.8" fill="#000" font-family="Verdana" font-size="12">license_number</text>
+</g>
+
+<!-- Entity Airport -->
+<g>
+	<g>
+		<rect x="139" y="412" width="58" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="139" y="437" width="58" height="59" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="139" y="412" width="58" height="84" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="139" y1="437" x2="197" y2="437" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="147" y="429.75" fill="#000" font-family="Verdana" font-size="12">Airport</text>
+	<text x="144" y="454.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="144" y1="457" x2="156" y2="457" stroke="#000" stroke-width="1"/>
+	<text x="144" y="471.8" fill="#000" font-family="Verdana" font-size="12">name</text>
+	<text x="144" y="488.8" fill="#000" font-family="Verdana" font-size="12">address</text>
+</g>
+
+<!-- Entity Flight -->
+<g>
+	<g>
+		<rect x="357" y="395" width="106" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="357" y="420" width="106" height="93" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="357" y="395" width="106" height="118" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="357" y1="420" x2="463" y2="420" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="393" y="412.75" fill="#000" font-family="Verdana" font-size="12">Flight</text>
+	<text x="362" y="437.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="362" y1="440" x2="374" y2="440" stroke="#000" stroke-width="1"/>
+	<text x="362" y="454.8" fill="#000" font-family="Verdana" font-size="12">departure_time</text>
+	<text x="362" y="471.8" fill="#000" font-family="Verdana" font-size="12">arrival_time</text>
+	<text x="362" y="488.8" fill="#000" font-family="Verdana" font-size="12">stopovers</text>
+	<text x="362" y="505.8" fill="#000" font-family="Verdana" font-size="12">distance</text>
+</g>
+
+<!-- Entity Runway -->
+<g>
+	<g>
+		<rect x="9" y="546" width="106" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="9" y="571" width="106" height="43" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="9" y="546" width="106" height="68" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="9" y1="571" x2="115" y2="571" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="38" y="563.75" fill="#000" font-family="Verdana" font-size="12">Runway</text>
+	<text x="14" y="588.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="14" y1="591" x2="26" y2="591" stroke="#000" stroke-width="1"/>
+	<text x="14" y="605.8" fill="#000" font-family="Verdana" font-size="12">current_aircraft</text>
+</g>
+
+<!-- Entity Booking -->
+<g>
+	<g>
+		<rect x="354" y="538" width="112" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="354" y="563" width="112" height="59" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="354" y="538" width="112" height="84" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="354" y1="563" x2="466" y2="563" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="386" y="555.75" fill="#000" font-family="Verdana" font-size="12">Booking</text>
+	<text x="359" y="580.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="359" y1="583" x2="371" y2="583" stroke="#000" stroke-width="1"/>
+	<text x="359" y="597.8" fill="#000" font-family="Verdana" font-size="12">date_of_booking</text>
+	<text x="359" y="614.8" fill="#000" font-family="Verdana" font-size="12">seat_number</text>
+</g>
+
+<!-- Entity User -->
+<g>
+	<g>
+		<rect x="584" y="504" width="76" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0" opacity="1"/>
+		<rect x="584" y="529" width="76" height="127" fill="#fee08b" stroke="#fee08b" stroke-width="0" opacity="1"/>
+		<rect x="584" y="504" width="76" height="152" fill="none" stroke="#f46d43" stroke-width="2" opacity="1"/>
+		<line x1="584" y1="529" x2="660" y2="529" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="608" y="521.75" fill="#000" font-family="Verdana" font-size="12">User</text>
+	<text x="589" y="546.8" fill="#000" font-family="Verdana" font-size="12">id</text>
+	<line x1="589" y1="549" x2="601" y2="549" stroke="#000" stroke-width="1"/>
+	<text x="589" y="563.8" fill="#000" font-family="Verdana" font-size="12">last_name</text>
+	<text x="589" y="580.8" fill="#000" font-family="Verdana" font-size="12">first_name</text>
+	<text x="589" y="597.8" fill="#000" font-family="Verdana" font-size="12">email</text>
+	<text x="589" y="614.8" fill="#000" font-family="Verdana" font-size="12">password</text>
+	<text x="589" y="631.8" fill="#000" font-family="Verdana" font-size="12">address</text>
+	<text x="589" y="648.8" fill="#000" font-family="Verdana" font-size="12">role</text>
+</g>
+</svg>
