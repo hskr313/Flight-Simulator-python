@@ -106,7 +106,7 @@
 
 # Libraries :
 
-- 1. Tkinter ou PyQt : Ces bibliothèques sont utilisées pour créer des interfaces graphiques en Python. Tkinter est inclus avec la plupart des installations Python, tandis que PyQt offre des fonctionnalités plus avancées et une apparence plus moderne.
+- Tkinter ou PyQt : Ces bibliothèques sont utilisées pour créer des interfaces graphiques en Python. Tkinter est inclus avec la plupart des installations Python, tandis que PyQt offre des fonctionnalités plus avancées et une apparence plus moderne.
 - Beautiful Soup : Utilisez cette bibliothèque pour analyser et extraire des données à partir de documents HTML ou XML, par exemple pour récupérer des informations sur les vols à partir de sites Web de compagnies aériennes.
 - Pandas : Cette bibliothèque est utile pour manipuler et analyser des données structurées. Vous pouvez l'utiliser pour filtrer, trier et manipuler les données sur les vols et les réservations.
 - NumPy : Cette bibliothèque est utilisée pour les calculs numériques et peut être utile pour les calculs liés à la simulation de vol.
@@ -123,15 +123,13 @@
 
 # Entités 
 
-1. **`Admin`** : hérite de **`User`**
-    1. **`User`** :
+1. **`User`** :
         - id
         - nom
         - email
         - mot de passe
         - rôle
         - réservations
-2. **`Passenger`** : hérite de **`User`**
 3. **`Aircraft`** :
     - id
     - modèle
