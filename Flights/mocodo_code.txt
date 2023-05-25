@@ -1,41 +1,39 @@
+Runway: id, current_aircraft
+Own, 1N Airport, 11 Runway
+Airport: id, name, address
+Take Off , 11 Itinerary, 0N Airport
 :
 :
 :
-CargoAircraft : capacity
+
 :
+:
+Land , 11 Itinerary, 0N Airport
+Itinerary: id, departure_time, arrival_time, distance
+Consists, 1N Flight, 11 Itinerary
+Concerns, 11 Booking, 1N Flight
 :
 
 :
 :
 PassangerAircraft : number_of_seats
-/\ Aircraft <- PassangerAircraft, CargoAircraft
-:
-:
+Perform, 0N Aircraft, 1N Flight
+Flight: id, departure_time, arrival_time, stopovers, distance
+Fly, 0N Pilot, 1N Flight
+Booking : id, date_of_booking, seat_number
 
 :
-Itinerary: id, departure_time, arrival_time, distance
-Consists, 1N Flight, 11 Itinerary
+CargoAircraft : capacity
+/\ Aircraft <- PassangerAircraft, CargoAircraft
 Aircraft: id, model, status, company_name, max_speed, fuel_tank
 :
-:
-
-Land I, 11 Itinerary, 0N Airport
-Take Off I, 11 Itinerary, 0N Airport
-Take Off, 0N Airport, 0N Flight
-Perform, 0N Aircraft, 11 Flight
-Fly, 0N Pilot, 1N Flight
 Pilot: license_number
+Book, 0N User, 11 Booking
 
 :
-Airport: id, name, address
-Land, 0N Airport, 0N Flight
-Flight: id, departure_time, arrival_time, stopovers, distance
+:
+:
+:
 :
 /1\ User <- Pilot
-
-Runway: id, current_aircraft
-Own, 1N Airport, 11 Runway
-Concerns, 11 Booking, 1N Flight
-Booking : id, date_of_booking, seat_number
-Book, 0N User, 11 Booking
 User: id, last_name, first_name, email, password, address, role
