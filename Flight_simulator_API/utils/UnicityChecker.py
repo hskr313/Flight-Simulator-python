@@ -11,4 +11,9 @@ class UnicityChecker:
 
             for data in datas:
                 attribute_value = data.get(attribute_name)
-                return not (attribute_value in unique_values)
+                if attribute_value in unique_values:
+                    return False
+                else:
+                    unique_values.add(attribute_value)
+
+        return True

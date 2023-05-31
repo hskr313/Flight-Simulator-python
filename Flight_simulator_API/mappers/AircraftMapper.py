@@ -1,9 +1,10 @@
 from models.Aircraft import Aircraft
 from models.CargoAircraft import CargoAircraft
 from models.PassengerAircraft import PassengerAircraft
+from mappers.BaseMapper import BaseMapper, T
 
 
-class AircraftMapper:
+class AircraftMapper(BaseMapper[Aircraft]):
 
     @staticmethod
     def to_json(aircraft: Aircraft):

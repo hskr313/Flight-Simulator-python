@@ -1,9 +1,10 @@
 from mappers.FlightMapper import FlightMapper
 from mappers.UserMapper import UserMapper
 from models.Booking import Booking
+from mappers.BaseMapper import BaseMapper
 
 
-class BookingMapper:
+class BookingMapper(BaseMapper[Booking]):
 
     @staticmethod
     def to_json(booking: Booking):

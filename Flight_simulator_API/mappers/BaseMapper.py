@@ -1,13 +1,16 @@
 from typing import TypeVar, Generic
+from abc import ABC,abstractmethod
 
 T = TypeVar('T')
 
 
-class BaseMapper(Generic[T]):
+class BaseMapper(Generic[T], ABC):
     @staticmethod
+    @abstractmethod
     def to_json(obj: T):
         pass
 
     @staticmethod
-    def from_json(obj: T):
+    @abstractmethod
+    def from_json(obj: dict):
         pass

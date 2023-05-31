@@ -1,8 +1,9 @@
 from models.Itinerary import Itinerary
 from mappers.AirportMapper import AirportMapper
+from mappers.BaseMapper import BaseMapper
 
 
-class ItineraryMapper:
+class ItineraryMapper(BaseMapper[Itinerary]):
 
     @staticmethod
     def to_json(itinerary: Itinerary):

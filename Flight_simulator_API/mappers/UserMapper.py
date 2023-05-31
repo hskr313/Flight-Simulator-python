@@ -3,7 +3,7 @@ from models.Pilot import Pilot
 from mappers.BaseMapper import BaseMapper
 
 
-class UserMapper(BaseMapper):
+class UserMapper(BaseMapper[User]):
 
     @staticmethod
     def to_json(user: User):
@@ -33,7 +33,7 @@ class UserMapper(BaseMapper):
                 user_json["email"],
                 user_json["password"],
                 user_json["address"],
-                user_json["roles"],
+                user_json.get("roles"),
                 user_json["license_number"]
             )
         else:
@@ -43,10 +43,10 @@ class UserMapper(BaseMapper):
                 user_json["email"],
                 user_json["password"],
                 user_json["address"],
-                user_json["roles"]
+                user_json.get("roles")
             )
 
-        user.id = user_json["id"]
-        user.created_at = user_json["created_at"]
-        user.updated_at = user_json["updated_at"]
+        user.id = user_json.get("id")
+        user.created_at = user_json.get("created_at")
+        user.updated_at = user_json.get("updated_at")
         return user

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "created_at": 1685517691,
+        "updated_at": 1685517691,
+        "last_name": "sakr",
+        "first_name": "hadi",
+        "email": "test@gmail.com",
+        "password": "$2b$12$f/4L7KwQGBWBdVS2APxEmul0S8gAi2QrZJ9itCyoMjMJIhH/FYDRu",
+        "address": "arlon",
+        "roles": [
+            "ADMIN",
+            "USER"
+        ]
+    }
+]

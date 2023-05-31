@@ -1,8 +1,9 @@
 from models.Runway import Runway
 from mappers.AircraftMapper import AircraftMapper
+from mappers.BaseMapper import BaseMapper
 
 
-class RunwayMapper:
+class RunwayMapper(BaseMapper[Runway]):
 
     @staticmethod
     def to_json(runway: Runway):

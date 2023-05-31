@@ -1,7 +1,8 @@
 from models.Airport import Airport
+from mappers.BaseMapper import BaseMapper
 
 
-class AirportMapper:
+class AirportMapper(BaseMapper[Airport]):
 
     @staticmethod
     def to_json(airport: Airport):

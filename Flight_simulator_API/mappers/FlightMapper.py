@@ -3,9 +3,10 @@ from mappers.AirportMapper import AirportMapper
 from mappers.ItineraryMapper import ItineraryMapper
 from mappers.UserMapper import UserMapper
 from models.Flight import Flight
+from mappers.BaseMapper import BaseMapper
 
 
-class FlightMapper:
+class FlightMapper(BaseMapper[Flight]):
 
     @staticmethod
     def to_json(flight: Flight):
