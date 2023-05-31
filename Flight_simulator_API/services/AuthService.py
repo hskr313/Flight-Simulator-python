@@ -10,3 +10,8 @@ class AuthService:
 
     def check_password_hash(self, hashed_password, password) -> bool:
         return self.bcrypt.check_password_hash(hashed_password, password)
+
+    @staticmethod
+    def validate_roles(roles) -> bool:
+        allowed_roles = ["USER", "PILOT"]
+        return all(role in allowed_roles for role in roles)

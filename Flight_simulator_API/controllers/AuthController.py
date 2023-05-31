@@ -28,6 +28,9 @@ class AuthController:
         if self.user_service.email_exists(data.get('email')):
             return jsonify({'message': 'Email already registered'}), 400
 
+        if not AuthService.validate_roles(data.get('roles')):
+            return jsonify({'message': 'Invalid role'}), 400
+
         hashed_password = self.auth_service.hash_password(data.get('password'))
         data["password"] = hashed_password
 

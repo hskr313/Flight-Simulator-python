@@ -12,5 +12,19 @@
             "ADMIN",
             "USER"
         ]
+    },
+    {
+        "id": 2,
+        "created_at": 1685523703,
+        "updated_at": 1685523703,
+        "last_name": "sakr",
+        "first_name": "hadi",
+        "email": "testP@gmail.com",
+        "password": "$2b$12$.1AmGHQQ2injwuQL0qdlQ.0KAfLGJ1O.kpLzbVOtdC2by8yDlkQAq",
+        "address": "charleroi",
+        "roles": [
+            "PILOT",
+            "USER"
+        ]
     }
 ]
