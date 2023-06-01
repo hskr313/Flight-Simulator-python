@@ -12,8 +12,10 @@ from mappers.UserMapper import UserMapper
 from services.AuthService import AuthService
 from services.BookingService import BookingService
 from services.UserService import UserService
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # Injection of all users/auth dependencies
 user_file_path = "json_files/users.json"

@@ -1,26 +1,14 @@
-from functools import wraps
-import inspect
+def multi_constructor(cls):
+    # Get the original __init__ function
+    init = cls.__init__
+    # Get the parameter names (skip "self")
+    params = init.__code__.co_varnames[1:init.__code__.co_argcount]
 
-def generate_constructors(cls):
-    attributes = [name for name, _ in cls.__annotations__.items() if name != 'return']
+    # Define a new __init__ function that takes **kwargs
+    def new_init(self, **kwargs):
+        # Call the old __init__ with the kwargs
+        init(self, **{k: kwargs[k] for k in params if k in kwargs})
 
-    @wraps(cls)
-    def wrapper(*args, **kwargs):
-        instance = cls(*args, **kwargs)
-        return instance
-
-    def generate_constructor(*constructor_args):
-        @wraps(cls)
-        def constructor_wrapper(*args, **kwargs):
-            instance = cls(*args, **kwargs)
-            return instance
-
-        return constructor_wrapper
-
-    for i in range(0, len(attributes) + 1):
-        constructor_args = attributes[:i]
-        constructor_name = '__init__' + '_'.join(constructor_args)
-        constructor = generate_constructor(*constructor_args)
-        setattr(wrapper, constructor_name, constructor)
-
-    return wrapper
+    # Overwrite the original __init__ function
+    cls.__init__ = new_init
+    return cls
