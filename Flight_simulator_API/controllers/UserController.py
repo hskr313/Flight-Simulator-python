@@ -10,10 +10,10 @@ class UserController:
         self.file_path = file_path
         self.blueprint = Blueprint('users', __name__)
         self.blueprint.add_url_rule('/users', 'get_all', self.get_all, methods=['GET'])
-        self.blueprint.add_url_rule('/users/<int:user_id>', 'get_one_by_id', self.get_one_by_id, methods=['GET'])
+        self.blueprint.add_url_rule('/user/<int:user_id>', 'get_one_by_id', self.get_one_by_id, methods=['GET'])
         self.blueprint.add_url_rule('/users', 'create_user', self.save_user, methods=['POST'])
-        self.blueprint.add_url_rule('/users/<int:user_id>', 'update_user', self.save_user, methods=['PUT'])
-        self.blueprint.add_url_rule('/users/<int:user_id>', 'delete_user', self.delete_user, methods=['DELETE'])
+        self.blueprint.add_url_rule('/user/<int:user_id>', 'update_user', self.save_user, methods=['PUT'])
+        self.blueprint.add_url_rule('/user/<int:user_id>', 'delete_user', self.delete_user, methods=['DELETE'])
 
     def get_all(self):
         datas = self.user_helper.read_all(self.file_path)

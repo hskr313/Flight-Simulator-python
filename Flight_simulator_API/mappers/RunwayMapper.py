@@ -12,7 +12,6 @@ class RunwayMapper(BaseMapper[Runway]):
             "created_at": runway.created_at,
             "updated_at": runway.updated_at,
             "current_aircraft": AircraftMapper.to_json(runway.current_aircraft)
-            # TODO ask if Aircraft Object or only boolean
         }
 
     @staticmethod

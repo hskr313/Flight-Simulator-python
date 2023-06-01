@@ -32,3 +32,14 @@ class BookingMapper(BaseMapper[Booking]):
         booking.created_at = booking_json["created_at"]
         booking.updated_at = booking_json["updated_at"]
         return booking
+
+    @staticmethod
+    def form_to_entity(booking_form: dict):
+        booking = Booking(
+            booking_form["date_of_booking"],
+            booking_form["seat_number"],
+        )
+        booking.id = booking_form["id"]
+        booking.created_at = booking_form["created_at"]
+        booking.updated_at = booking_form["updated_at"]
+        return booking
