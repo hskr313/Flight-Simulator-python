@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './security/auth.service';
+import { User } from './security/models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Flight-Simulator-Angular';
+
+  constructor(private authService: AuthService) {}
+
+  userProfile?: User | null;
+
+  ngOnInit(): void {
+    this.authService.userSubject.subscribe((data) => {
+      this.userProfile = data;
+    });
+  }
 }
