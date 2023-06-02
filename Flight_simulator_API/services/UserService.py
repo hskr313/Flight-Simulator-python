@@ -8,7 +8,8 @@ from JsonHelpers.UserHelper import UserHelper
 
 class UserService:
     def __init__(self, user_mapper: UserMapper, user_helper: UserHelper, file_path):
-        self.file_path = file_path
+        self.file_path = "json_files/users.json"
+        self.test = file_path
         self.user_mapper = user_mapper
         self.user_helper = user_helper
 
@@ -21,6 +22,6 @@ class UserService:
         return None
 
     def email_exists(self, email) -> bool:
-        return not UnicityChecker.check_unique_attribute(self.file_path, email)
+        return not UnicityChecker.check_unique_attribute(self.file_path, 'email', email)
 
 

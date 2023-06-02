@@ -1,6 +1,7 @@
 from models.User import User
 from models.Pilot import Pilot
 from mappers.BaseMapper import BaseMapper
+from mappers.AddressMapper import AddressMapper
 
 
 class UserMapper(BaseMapper[User]):
@@ -15,7 +16,7 @@ class UserMapper(BaseMapper[User]):
             "first_name": user.first_name,
             "email": user.email,
             "password": user.password,
-            "address": user.address,
+            "address": AddressMapper.to_json(user.address),
             "roles": [role for role in user.roles]
         }
 
@@ -26,23 +27,24 @@ class UserMapper(BaseMapper[User]):
 
     @staticmethod
     def from_json(user_json: dict):
+        address = AddressMapper.from_json(user_json.get("address"))
         if "license_number" in user_json:
             user = Pilot(
-                user_json["last_name"],
-                user_json["first_name"],
-                user_json["email"],
-                user_json["password"],
-                user_json["address"],
+                user_json.get("last_name"),
+                user_json.get("first_name"),
+                user_json.get("email"),
+                user_json.get("password"),
+                address,
                 user_json.get("roles"),
-                user_json["license_number"]
+                user_json.get("license_number")
             )
         else:
             user = User(
-                user_json["last_name"],
-                user_json["first_name"],
-                user_json["email"],
-                user_json["password"],
-                user_json["address"],
+                user_json.get("last_name"),
+                user_json.get("first_name"),
+                user_json.get("email"),
+                user_json.get("password"),
+                address,
                 user_json.get("roles")
             )
 

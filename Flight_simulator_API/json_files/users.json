@@ -7,7 +7,13 @@
         "first_name": "hadi",
         "email": "test@gmail.com",
         "password": "$2b$12$f/4L7KwQGBWBdVS2APxEmul0S8gAi2QrZJ9itCyoMjMJIhH/FYDRu",
-        "address": "arlon",
+        "address": {
+            "street": "rue de bg",
+            "street_number": 1,
+            "city": "charleroi",
+            "postal_code": "6061",
+            "country": "Belgium"
+        },
         "roles": [
             "ADMIN",
             "USER"
@@ -15,16 +21,23 @@
     },
     {
         "id": 2,
-        "created_at": 1685523703,
-        "updated_at": 1685523703,
+        "created_at": 1685699451,
+        "updated_at": 1685699451,
         "last_name": "sakr",
         "first_name": "hadi",
-        "email": "testP@gmail.com",
-        "password": "$2b$12$.1AmGHQQ2injwuQL0qdlQ.0KAfLGJ1O.kpLzbVOtdC2by8yDlkQAq",
-        "address": "charleroi",
+        "email": "pilot1234@gmail.com",
+        "password": "$2b$12$uKW8sAPTwoWsBS7AW1BYcudrxFfrgfkt.dh.ItafHPqhV8.FDANDm",
+        "address": {
+            "street": "rue de test",
+            "street_number": 1,
+            "city": "test",
+            "postal_code": "1234",
+            "country": "test"
+        },
         "roles": [
             "PILOT",
             "USER"
-        ]
+        ],
+        "license_number": "12345"
     }
 ]

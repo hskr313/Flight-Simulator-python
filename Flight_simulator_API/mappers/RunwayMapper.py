@@ -16,8 +16,8 @@ class RunwayMapper(BaseMapper[Runway]):
 
     @staticmethod
     def from_json(runway_json: dict):
-        runway = Runway(AircraftMapper.from_json(runway_json["current_aircraft"]))
-        runway.id = runway_json["id"]
-        runway.created_at = runway_json["created_at"]
-        runway.updated_at = runway_json["updated_at"]
+        runway = Runway(AircraftMapper.from_json(runway_json.get("current_aircraft")))
+        runway.id = runway_json.get("id")
+        runway.created_at = runway_json.get("created_at")
+        runway.updated_at = runway_json.get("updated_at")
         return runway

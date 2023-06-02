@@ -19,12 +19,14 @@ class AirportMapper(BaseMapper[Airport]):
     @staticmethod
     def from_json(airport_json: dict):
         airport = Airport(
-            airport_json["name"],
-            airport_json["address"],
-            airport_json["runways"],
-            airport_json["itinerary"]
+            airport_json.get("name"),
+            airport_json.get("address"),
+            airport_json.get("runways"),
+            airport_json.get("itinerary")
         )
-        airport.id = airport_json["id"]
-        airport.created_at = airport_json["created_at"]
-        airport.updated_at = airport_json["updated_at"]
+        airport.id = airport_json.get("id")
+        airport.created_at = airport_json.get("created_at")
+        airport.updated_at = airport_json.get("updated_at")
         return airport
+
+#Todo mapper les runways et itinerary to object

@@ -24,20 +24,20 @@ class FlightMapper(BaseMapper[Flight]):
 
     @staticmethod
     def from_json(flight_json: dict):
-        stopovers = [ItineraryMapper.from_json(itinerary_json) for itinerary_json in flight_json["stopovers"]]
-        pilot = UserMapper.from_json(flight_json["pilot"])
-        aircraft = AircraftMapper.from_json(flight_json["aircraft"])
-        itinerary = ItineraryMapper.from_json(flight_json["itinerary"])
-        airport = AirportMapper.from_json(flight_json["airport"])
+        # stopovers = [ItineraryMapper.from_json(itinerary_json) for itinerary_json in flight_json.get("stopovers", [])]
+        pilot = UserMapper.from_json(flight_json.get("pilot"))
+        aircraft = AircraftMapper.from_json(flight_json.get("aircraft"))
+        itinerary = ItineraryMapper.from_json(flight_json.get("itinerary"))
+        airport = AirportMapper.from_json(flight_json.get("airport"))
         flight = Flight(
             # stopovers,
-            flight_json["distance"],
+            flight_json.get("distance"),
             pilot,
             aircraft,
             itinerary,
             airport
         )
-        flight.id = flight_json["id"]
-        flight.created_at = flight_json["created_at"]
-        flight.updated_at = flight_json["updated_at"]
+        flight.id = flight_json.get("id")
+        flight.created_at = flight_json.get("created_at")
+        flight.updated_at = flight_json.get("updated_at")
         return flight

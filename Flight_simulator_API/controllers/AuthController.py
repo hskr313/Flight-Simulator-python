@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 
 from JsonHelpers.UserHelper import UserHelper
+from mappers.AddressMapper import AddressMapper
 from mappers.UserMapper import UserMapper
 from models.security.SafeUser import SafeUser
 from services.UserService import UserService
@@ -25,6 +26,7 @@ class AuthController:
 
     def register(self):
         data = request.get_json()
+
         if self.user_service.email_exists(data.get('email')):
             return jsonify({'message': 'Email already registered'}), 400
 

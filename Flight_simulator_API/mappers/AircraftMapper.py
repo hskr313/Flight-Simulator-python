@@ -30,23 +30,23 @@ class AircraftMapper(BaseMapper[Aircraft]):
     def from_json(aircraft_json: dict):
         if "capacity" in aircraft_json:
             aircraft = CargoAircraft(
-                aircraft_json["model"],
-                aircraft_json["status"],
-                aircraft_json["company_name"],
-                aircraft_json["max_speed"],
-                aircraft_json["fuel_tank"],
-                aircraft_json["capacity"]
+                aircraft_json.get("model"),
+                aircraft_json.get("status"),
+                aircraft_json.get("company_name"),
+                aircraft_json.get("max_speed"),
+                aircraft_json.get("fuel_tank"),
+                aircraft_json.get("capacity")
             )
         elif "number_of_seats" in aircraft_json:
             aircraft = PassengerAircraft(
-                aircraft_json["model"],
-                aircraft_json["status"],
-                aircraft_json["company_name"],
-                aircraft_json["max_speed"],
-                aircraft_json["fuel_tank"],
-                aircraft_json["number_of_seats"]
+                aircraft_json.get("model"),
+                aircraft_json.get("status"),
+                aircraft_json.get("company_name"),
+                aircraft_json.get("max_speed"),
+                aircraft_json.get("fuel_tank"),
+                aircraft_json.get("number_of_seats")
             )
-        aircraft.id = aircraft_json["id"]
-        aircraft.created_at = aircraft_json["created_at"]
-        aircraft.updated_at = aircraft_json["updated_at"]
+        aircraft.id = aircraft_json.get("id")
+        aircraft.created_at = aircraft_json.get("created_at")
+        aircraft.updated_at = aircraft_json.get("updated_at")
         return aircraft

@@ -1,3 +1,6 @@
+from mappers.AddressMapper import AddressMapper
+
+
 class SafeUser:
     def __init__(self, user):
         self.id = user.id
@@ -6,7 +9,7 @@ class SafeUser:
         self.last_name = user.last_name
         self.first_name = user.first_name
         self.email = user.email
-        self.address = user.address
+        self.address = AddressMapper.to_json(user.address)
         self.roles = user.roles
 
     def to_json(self):

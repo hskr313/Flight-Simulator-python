@@ -23,23 +23,23 @@ class BookingMapper(BaseMapper[Booking]):
         user = UserMapper.from_json(booking_json["user"])
         flight = FlightMapper.from_json(booking_json["flight"])
         booking = Booking(
-            booking_json["date_of_booking"],
-            booking_json["seat_number"],
+            booking_json.get("date_of_booking"),
+            booking_json.get("seat_number"),
             user,
             flight
         )
-        booking.id = booking_json["id"]
-        booking.created_at = booking_json["created_at"]
-        booking.updated_at = booking_json["updated_at"]
+        booking.id = booking_json.get("id")
+        booking.created_at = booking_json.get("created_at")
+        booking.updated_at = booking_json.get("updated_at")
         return booking
 
     @staticmethod
     def form_to_entity(booking_form: dict):
         booking = Booking(
-            booking_form["date_of_booking"],
-            booking_form["seat_number"],
+            booking_form.get("date_of_booking"),
+            booking_form.get("seat_number"),
         )
-        booking.id = booking_form["id"]
-        booking.created_at = booking_form["created_at"]
-        booking.updated_at = booking_form["updated_at"]
+        booking.id = booking_form.get("id")
+        booking.created_at = booking_form.get("created_at")
+        booking.updated_at = booking_form.get("updated_at")
         return booking

@@ -21,13 +21,13 @@ class ItineraryMapper(BaseMapper[Itinerary]):
     @staticmethod
     def from_json(itinerary_json: dict):
         itinerary = Itinerary(
-            itinerary_json["departure_time"],
-            itinerary_json["arrival_time"],
-            AirportMapper.from_json(itinerary_json["departure_airport"]),
-            AirportMapper.from_json(itinerary_json["arrival_airport"]),
-            itinerary_json["distance"]
+            itinerary_json.get("departure_time"),
+            itinerary_json.get("arrival_time"),
+            AirportMapper.from_json(itinerary_json.get("departure_airport")),
+            AirportMapper.from_json(itinerary_json.get("arrival_airport")),
+            itinerary_json.get("distance")
         )
-        itinerary.id = itinerary_json["id"]
-        itinerary.created_at = itinerary_json["created_at"]
-        itinerary.updated_at = itinerary_json["updated_at"]
+        itinerary.id = itinerary_json.get("id")
+        itinerary.created_at = itinerary_json.get("created_at")
+        itinerary.updated_at = itinerary_json.get("updated_at")
         return itinerary
