@@ -4,6 +4,7 @@ from JsonHelpers.BookingHelper import BookingHelper
 from mappers.BookingMapper import BookingMapper
 from models.Booking import Booking
 from services.BookingService import BookingService
+from utils.RequestRole import requires_roles
 
 
 class BookingController:
@@ -19,6 +20,7 @@ class BookingController:
         self.blueprint = Blueprint('booking', __name__)
         self.blueprint.add_url_rule('/bookings', 'get_all', self.get_all, methods=['GET'])
 
+    @requires_roles('ADMIN')
     def get_all(self):
         datas = self.booking_helper.read_all(self.file_path)
         return jsonify(datas), 200
@@ -44,6 +46,7 @@ class BookingController:
         booking_json = self.booking_mapper.to_json(saved_booking)
         return jsonify(booking_json), 201 if not booking_id else 200
 
+    @requires_roles('ADMIN')
     def save_cargo_booking(self, booking_id):
         # uniquement les admin et sans FIN
         pass

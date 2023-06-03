@@ -8,11 +8,20 @@ import { InputTextModule } from 'primeng/inputtext';
 
 
 import { LoginComponent } from './login/login.component';
+import {PanelModule} from "primeng/panel";
+import {RouterLink} from "@angular/router";
+import {RippleModule} from "primeng/ripple";
+import { RegisterComponent } from './register/register.component';
+import {AppLayoutModule} from "../layout/app.layout.module";
+import {InputSwitchModule} from "primeng/inputswitch";
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    NotfoundComponent
   ],
   imports: [
     CommonModule,
@@ -21,9 +30,15 @@ import { LoginComponent } from './login/login.component';
     PasswordModule,
     InputTextModule,
     ButtonModule,
+    PanelModule,
+    RouterLink,
+    RippleModule,
+    AppLayoutModule,
+    InputSwitchModule,
   ],
   exports: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ]
 })
 export class SecurityModule { }

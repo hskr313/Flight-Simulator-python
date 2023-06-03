@@ -40,4 +40,8 @@ export class AuthService {
   }));
   }
 
+  register(user: User): Observable<User>{
+    return this.$client.post<User>(this.url+"/register", user)
+  }
+
 }
