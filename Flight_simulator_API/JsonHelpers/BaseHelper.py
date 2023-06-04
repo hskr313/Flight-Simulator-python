@@ -54,7 +54,7 @@ class BaseHelper(Generic[T], ABC):
         except Exception:
             raise Exception("Error occurred during save operation")
 
-    def read_all(self, file_path) -> List[T]:
+    def read_all(self, file_path) -> List[dict]:
         """
             Reads all objects from a JSON file.
 
@@ -69,7 +69,7 @@ class BaseHelper(Generic[T], ABC):
         except FileNotFoundError:
             return []
 
-    def read_one_by_id(self, entity_id: int, file_path) -> Optional[T]:
+    def read_one_by_id(self, entity_id: int, file_path) -> Optional[dict]:
         """
         Reads a specific object from a JSON file based on its ID.
 

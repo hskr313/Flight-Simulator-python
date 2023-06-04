@@ -1,3 +1,72 @@
 [
+  {
+      "id": 1,
+      "distance": 344,
+      "pilot": {
+        "id": 2,
+        "created_at": 1685699451,
+        "updated_at": 1685699451,
+        "last_name": "sakr",
+        "first_name": "hadi",
+        "email": "pilot1234@gmail.com",
+        "password": "$2b$12$uKW8sAPTwoWsBS7AW1BYcudrxFfrgfkt.dh.ItafHPqhV8.FDANDm",
+        "address": {
+            "street": "rue de test",
+            "street_number": 1,
+            "city": "test",
+            "postal_code": "1234",
+            "country": "test"
+        },
+        "roles": [
+            "PILOT",
+            "USER"
+        ],
+        "license_number": "12345"
+    },
+      "aircraft": {
+          "id": 1,
+          "model": "Boeing 737",
+          "available": true,
+          "company_name": "Air France",
+          "max_speed": 853,
+          "fuel_tank": 26000,
+          "business_capacity": 12,
+          "economy_capacity": 162
+      },
+      "itinerary": {
+          "id": 1,
+          "departure_time": "2023-06-10T09:00:00",
+          "arrival_time": "2023-06-10T15:00:00",
+          "departure_airport": {
+              "id": 1,
+              "name": "Charles De Gaulle",
+              "address": "Roissy-en-France",
+              "runways": 4,
+              "itinerary": []
+          },
+          "arrival_airport": {
+              "id": 2,
+              "name": "Beyrouth airport",
+              "address": "Beyrouth",
+              "runways": 4,
+              "itinerary": []
+          },
+          "distance": 344
+      },
+      "airport": {
+          "id": 1,
+          "name": "Charles De Gaulle",
+          "address": "Roissy-en-France",
+          "runways": 4,
+          "itinerary": []
+      },
+    "seats": [
+        {"seat_number": 1, "seat_class": "business"},
+        {"seat_number": 2, "seat_class": "business"},
+        {"seat_number": 3, "seat_class": "business"},
+        {"seat_number": 13, "seat_class": "economy"},
+        {"seat_number": 14, "seat_class": "economy"}
+    ]
+  }
 
 ]

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from JsonHelpers.BaseHelper import BaseHelper, T
 from mappers import UserMapper
@@ -16,7 +16,7 @@ class UserHelper(BaseHelper[User]):
     def read_all(self, file_path) -> List[dict]:
         return super().read_all(file_path)
 
-    def read_one_by_id(self, user_id: int, file_path) -> dict:
+    def read_one_by_id(self, user_id: int, file_path) -> Optional[dict]:
         return super().read_one_by_id(user_id, file_path)
 
     def delete(self, user_id: int, file_path) -> None:

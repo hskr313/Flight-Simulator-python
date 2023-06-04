@@ -13,7 +13,7 @@ class AircraftMapper(BaseMapper[Aircraft]):
             "created_at": aircraft.created_at,
             "updated_at": aircraft.updated_at,
             "model": aircraft.model,
-            "status": aircraft.status,
+            "available": aircraft.available,
             "company_name": aircraft.company_name,
             "max_speed": aircraft.max_speed,
             "fuel_tank": aircraft.fuel_tank
@@ -22,7 +22,8 @@ class AircraftMapper(BaseMapper[Aircraft]):
         if isinstance(aircraft, CargoAircraft):
             aircraft_json["capacity"] = aircraft.capacity
         elif isinstance(aircraft, PassengerAircraft):
-            aircraft_json["number_of_seats"] = aircraft.number_of_seats
+            aircraft_json["business_capacity"] = aircraft.business_capacity
+            aircraft_json["economy_capacity"] = aircraft.economy_capacity
 
         return aircraft_json
 
@@ -31,22 +32,22 @@ class AircraftMapper(BaseMapper[Aircraft]):
         if "capacity" in aircraft_json:
             aircraft = CargoAircraft(
                 aircraft_json.get("model"),
-                aircraft_json.get("status"),
                 aircraft_json.get("company_name"),
                 aircraft_json.get("max_speed"),
                 aircraft_json.get("fuel_tank"),
                 aircraft_json.get("capacity")
             )
-        elif "number_of_seats" in aircraft_json:
+        else:
             aircraft = PassengerAircraft(
                 aircraft_json.get("model"),
-                aircraft_json.get("status"),
                 aircraft_json.get("company_name"),
                 aircraft_json.get("max_speed"),
                 aircraft_json.get("fuel_tank"),
-                aircraft_json.get("number_of_seats")
+                aircraft_json.get("business_capacity"),
+                aircraft_json.get("economy_capacity")
             )
         aircraft.id = aircraft_json.get("id")
+        aircraft.available = aircraft_json.get("available")
         aircraft.created_at = aircraft_json.get("created_at")
         aircraft.updated_at = aircraft_json.get("updated_at")
         return aircraft

@@ -1,6 +1,7 @@
 import json
 from functools import wraps
 from flask import request, jsonify
+from JsonHelpers.UserHelper import UserHelper
 
 
 def requires_roles(*roles):
@@ -12,6 +13,7 @@ def requires_roles(*roles):
     :param roles: The roles required to access the decorated function.
     :return: Wrapper function.
     """
+
     def wrapper(f):
         """
         Inner function that wraps the decorated function.
@@ -19,6 +21,7 @@ def requires_roles(*roles):
         :param f: The decorated function.
         :return: Wrapped function.
         """
+
         @wraps(f)
         def wrapped(*args, **kwargs):
             """
@@ -29,7 +32,7 @@ def requires_roles(*roles):
             passed to the decorated function. :return: Result of the decorated function, or a JSON response
             indicating an error if user's role is not authorized.
             """
-            user = request.headers.get('current_user')
+            user = request.headers.get("Authorization")
 
             if user is None:
                 return jsonify({'message': 'No user provided'}), 401

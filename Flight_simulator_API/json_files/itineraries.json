@@ -1,3 +1,22 @@
 [
-
+  {
+      "id": 1,
+      "departure_time": "2023-06-10T09:00:00",
+      "arrival_time": "2023-06-10T15:00:00",
+      "departure_airport": {
+          "id": 1,
+          "name": "Charles De Gaulle",
+          "address": "Roissy-en-France",
+          "runways": 4,
+          "itinerary": []
+      },
+      "arrival_airport": {
+          "id": 2,
+          "name": "Beyrouth airport",
+          "address": "Beyrouth",
+          "runways": 4,
+          "itinerary": []
+      },
+      "distance": 344
+  }
 ]

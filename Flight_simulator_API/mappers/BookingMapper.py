@@ -1,3 +1,5 @@
+import datetime
+
 from mappers.FlightMapper import FlightMapper
 from mappers.UserMapper import UserMapper
 from models.Booking import Booking
@@ -34,12 +36,7 @@ class BookingMapper(BaseMapper[Booking]):
         return booking
 
     @staticmethod
-    def form_to_entity(booking_form: dict):
-        booking = Booking(
-            booking_form.get("date_of_booking"),
-            booking_form.get("seat_number"),
-        )
-        booking.id = booking_form.get("id")
-        booking.created_at = booking_form.get("created_at")
-        booking.updated_at = booking_form.get("updated_at")
+    def form_to_entity():
+        booking = Booking()
+        booking.date_of_booking = datetime.datetime.now()
         return booking

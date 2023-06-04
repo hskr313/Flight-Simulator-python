@@ -2,15 +2,16 @@ from mappers.AircraftMapper import AircraftMapper
 from mappers.AirportMapper import AirportMapper
 from mappers.ItineraryMapper import ItineraryMapper
 from mappers.UserMapper import UserMapper
-from models.Flight import Flight
+from models.Flight import Flight, Seat
 from mappers.BaseMapper import BaseMapper
+from models.PassengerAircraft import PassengerAircraft
 
 
 class FlightMapper(BaseMapper[Flight]):
 
     @staticmethod
     def to_json(flight: Flight):
-        return {
+        flight_json = {
             "id": flight.id,
             "created_at": flight.created_at,
             "updated_at": flight.updated_at,
@@ -21,6 +22,9 @@ class FlightMapper(BaseMapper[Flight]):
             "itinerary": ItineraryMapper.to_json(flight.itinerary),
             "airport": AirportMapper.to_json(flight.airport)
         }
+        if isinstance(flight.aircraft, PassengerAircraft):
+            flight_json["seats"] = [SeatMapper.to_json(seat) for seat in flight.seats]
+        return
 
     @staticmethod
     def from_json(flight_json: dict):
@@ -37,7 +41,29 @@ class FlightMapper(BaseMapper[Flight]):
             itinerary,
             airport
         )
+        flight.seats = [SeatMapper.from_json(seat) for seat in flight_json.get("seats")]
         flight.id = flight_json.get("id")
         flight.created_at = flight_json.get("created_at")
         flight.updated_at = flight_json.get("updated_at")
         return flight
+
+
+class SeatMapper(BaseMapper[Seat]):
+
+    @staticmethod
+    def to_json(seat: Seat):
+        seat_json = {
+            "seat_number": seat.seat_number,
+            "seat_class": seat.seat_class,
+            "occupied": seat.occupied
+        }
+        return seat_json
+
+    @staticmethod
+    def from_json(seat_json: dict):
+        seat = Seat(
+            seat_json.get("seat_class"),
+            seat_json.get("seat_number")
+        )
+        seat.occupied = seat_json.get("occupied")
+        return seat

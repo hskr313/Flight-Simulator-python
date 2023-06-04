@@ -1,3 +1,16 @@
 [
-
+  {
+      "id": 1,
+      "name": "Charles De Gaulle",
+      "address": "Roissy-en-France",
+      "runways": 4,
+      "itinerary": []
+  },
+  {
+      "id": 2,
+      "name": "Beyrouth airport",
+      "address": "Beyrouth",
+      "runways": 4,
+      "itinerary": []
+  }
 ]
