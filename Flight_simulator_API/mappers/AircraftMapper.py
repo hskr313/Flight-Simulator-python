@@ -6,8 +6,7 @@ from mappers.BaseMapper import BaseMapper, T
 
 class AircraftMapper(BaseMapper[Aircraft]):
 
-    @staticmethod
-    def to_json(aircraft: Aircraft):
+    def to_json(self, aircraft: Aircraft):
         aircraft_json = {
             "id": aircraft.id,
             "created_at": aircraft.created_at,
@@ -27,8 +26,7 @@ class AircraftMapper(BaseMapper[Aircraft]):
 
         return aircraft_json
 
-    @staticmethod
-    def from_json(aircraft_json: dict):
+    def from_json(self, aircraft_json: dict):
         if "capacity" in aircraft_json:
             aircraft = CargoAircraft(
                 aircraft_json.get("model"),

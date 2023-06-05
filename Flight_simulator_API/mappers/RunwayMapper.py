@@ -5,18 +5,17 @@ from mappers.BaseMapper import BaseMapper
 
 class RunwayMapper(BaseMapper[Runway]):
 
-    @staticmethod
-    def to_json(runway: Runway):
+    def to_json(self, runway: Runway):
         return {
             "id": runway.id,
             "created_at": runway.created_at,
             "updated_at": runway.updated_at,
-            "current_aircraft": AircraftMapper.to_json(runway.current_aircraft)
+            "current_aircraft": runway.available
         }
 
-    @staticmethod
-    def from_json(runway_json: dict):
-        runway = Runway(AircraftMapper.from_json(runway_json.get("current_aircraft")))
+    def from_json(self, runway_json: dict):
+        runway = Runway()
+        runway.available = runway_json.get("available")
         runway.id = runway_json.get("id")
         runway.created_at = runway_json.get("created_at")
         runway.updated_at = runway_json.get("updated_at")

@@ -8,8 +8,7 @@ from mappers.BaseMapper import BaseMapper
 
 class BookingMapper(BaseMapper[Booking]):
 
-    @staticmethod
-    def to_json(booking: Booking):
+    def to_json(self, booking: Booking):
         return {
             "id": booking.id,
             "created_at": booking.created_at,
@@ -20,8 +19,7 @@ class BookingMapper(BaseMapper[Booking]):
             "flight": FlightMapper.to_json(booking.flight)
         }
 
-    @staticmethod
-    def from_json(booking_json: dict):
+    def from_json(self, booking_json: dict):
         user = UserMapper.from_json(booking_json["user"])
         flight = FlightMapper.from_json(booking_json["flight"])
         booking = Booking(
@@ -35,8 +33,7 @@ class BookingMapper(BaseMapper[Booking]):
         booking.updated_at = booking_json.get("updated_at")
         return booking
 
-    @staticmethod
-    def form_to_entity():
+    def form_to_entity(self):
         booking = Booking()
         booking.date_of_booking = datetime.datetime.now()
         return booking

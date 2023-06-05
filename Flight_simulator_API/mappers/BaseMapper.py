@@ -5,12 +5,10 @@ T = TypeVar('T')
 
 
 class BaseMapper(Generic[T], ABC):
-    @staticmethod
     @abstractmethod
-    def to_json(obj: T):
+    def to_json(self, obj: T):
         pass
 
-    @staticmethod
     @abstractmethod
-    def from_json(obj: dict):
+    def from_json(self, obj: dict):
         pass

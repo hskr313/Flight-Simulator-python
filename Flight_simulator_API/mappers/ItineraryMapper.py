@@ -5,8 +5,7 @@ from mappers.BaseMapper import BaseMapper
 
 class ItineraryMapper(BaseMapper[Itinerary]):
 
-    @staticmethod
-    def to_json(itinerary: Itinerary):
+    def to_json(self, itinerary: Itinerary):
         return {
             "id": itinerary.id,
             "created_at": itinerary.created_at,
@@ -18,8 +17,7 @@ class ItineraryMapper(BaseMapper[Itinerary]):
             "distance": itinerary.distance
         }
 
-    @staticmethod
-    def from_json(itinerary_json: dict):
+    def from_json(self, itinerary_json: dict):
         itinerary = Itinerary(
             itinerary_json.get("departure_time"),
             itinerary_json.get("arrival_time"),

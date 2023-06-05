@@ -22,7 +22,6 @@ class BookingController:
         self.blueprint.add_url_rule('/booking/<int:booking_id>', 'get_one_by_id', self.get_one_by_id, methods=['GET'])
         self.blueprint.add_url_rule('/bookings', 'add_passenger_booking', self.save_passenger_booking, methods=['POST'])
 
-
     @requires_roles('ADMIN')
     def get_all(self):
         datas = self.booking_helper.read_all(self.file_path)

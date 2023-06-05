@@ -9,8 +9,7 @@ from models.PassengerAircraft import PassengerAircraft
 
 class FlightMapper(BaseMapper[Flight]):
 
-    @staticmethod
-    def to_json(flight: Flight):
+    def to_json(self, flight: Flight):
         flight_json = {
             "id": flight.id,
             "created_at": flight.created_at,
@@ -19,27 +18,23 @@ class FlightMapper(BaseMapper[Flight]):
             "distance": flight.distance,
             "pilot": UserMapper.to_json(flight.pilot),
             "aircraft": AircraftMapper.to_json(flight.aircraft),
-            "itinerary": ItineraryMapper.to_json(flight.itinerary),
-            "airport": AirportMapper.to_json(flight.airport)
+            "itinerary": ItineraryMapper.to_json(flight.itinerary)
         }
         if isinstance(flight.aircraft, PassengerAircraft):
             flight_json["seats"] = [SeatMapper.to_json(seat) for seat in flight.seats]
         return
 
-    @staticmethod
-    def from_json(flight_json: dict):
+    def from_json(self, flight_json: dict):
         # stopovers = [ItineraryMapper.from_json(itinerary_json) for itinerary_json in flight_json.get("stopovers", [])]
         pilot = UserMapper.from_json(flight_json.get("pilot"))
         aircraft = AircraftMapper.from_json(flight_json.get("aircraft"))
         itinerary = ItineraryMapper.from_json(flight_json.get("itinerary"))
-        airport = AirportMapper.from_json(flight_json.get("airport"))
         flight = Flight(
             # stopovers,
             flight_json.get("distance"),
             pilot,
             aircraft,
             itinerary,
-            airport
         )
         flight.seats = [SeatMapper.from_json(seat) for seat in flight_json.get("seats")]
         flight.id = flight_json.get("id")
@@ -50,8 +45,7 @@ class FlightMapper(BaseMapper[Flight]):
 
 class SeatMapper(BaseMapper[Seat]):
 
-    @staticmethod
-    def to_json(seat: Seat):
+    def to_json(self, seat: Seat):
         seat_json = {
             "seat_number": seat.seat_number,
             "seat_class": seat.seat_class,
@@ -59,8 +53,7 @@ class SeatMapper(BaseMapper[Seat]):
         }
         return seat_json
 
-    @staticmethod
-    def from_json(seat_json: dict):
+    def from_json(self, seat_json: dict):
         seat = Seat(
             seat_json.get("seat_class"),
             seat_json.get("seat_number")
