@@ -31,26 +31,26 @@ class BaseHelper(Generic[T], ABC):
             with open(file_path, "r+") as f:
                 datas = json.load(f)
 
-                new_obj = self.mapper.to_json(obj)
+            new_obj = self.mapper.to_json(obj)
 
-                if new_obj["id"] is None:
-                    new_obj["id"] = max(data["id"] for data in datas) + 1 if datas else 1
-                    new_obj["created_at"] = new_obj["updated_at"] = int(time.time())
+            if new_obj["id"] is None:
+                new_obj["id"] = max(data["id"] for data in datas) + 1 if datas else 1
+                new_obj["created_at"] = new_obj["updated_at"] = int(time.time())
 
-                for i, data in enumerate(datas):
-                    if data["id"] == new_obj["id"]:
-                        for key in new_obj:
-                            if key != 'id':
-                                data[key] = new_obj[key]
-                                new_obj["updated_at"] = int(time.time())
-                        break
-                else:
-                    datas.append(new_obj)
+            for i, data in enumerate(datas):
+                if data["id"] == new_obj["id"]:
+                    for key in new_obj:
+                        if key != 'id':
+                            data[key] = new_obj[key]
+                            new_obj["updated_at"] = int(time.time())
+                    break
+            else:
+                datas.append(new_obj)
 
-                f.seek(0)
-                json.dump(datas, f, indent=4)
-                f.truncate()
-                return self.mapper.from_json(new_obj)
+            f.seek(0)
+            json.dump(datas, f, indent=4)
+            f.truncate()
+            return self.mapper.from_json(new_obj)
         except Exception:
             raise Exception("Error occurred during save operation")
 

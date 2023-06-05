@@ -6,8 +6,7 @@ from mappers.AddressMapper import AddressMapper
 
 class UserMapper(BaseMapper[User]):
 
-    @staticmethod
-    def to_json(user: User):
+    def to_json(self, user: User):
         user_json = {
             "id": user.id,
             "created_at": user.created_at,
@@ -25,8 +24,7 @@ class UserMapper(BaseMapper[User]):
 
         return user_json
 
-    @staticmethod
-    def from_json(user_json: dict):
+    def from_json(self, user_json: dict):
         address = AddressMapper.from_json(user_json.get("address"))
         if "license_number" in user_json:
             user = Pilot(

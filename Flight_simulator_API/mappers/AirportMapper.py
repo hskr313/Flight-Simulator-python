@@ -4,6 +4,7 @@ from mappers.BaseMapper import BaseMapper
 
 
 class AirportMapper(BaseMapper[Airport]):
+    itinerary_mapper = ItineraryMapper()
 
     def to_json(self, airport: Airport):
         return {
@@ -13,11 +14,11 @@ class AirportMapper(BaseMapper[Airport]):
             "name": airport.name,
             "address": airport.address,
             "runways": airport.runways,
-            "itineraries": [ItineraryMapper.to_json(itinerary) for itinerary in airport.itineraries]
+            "itineraries": [self.itinerary_mapper.to_json(itinerary) for itinerary in airport.itineraries]
         }
 
     def from_json(self, airport_json: dict):
-        itineraries = [ItineraryMapper.from_json(itinerary) for itinerary in airport_json.get("itineraries")]
+        itineraries = [self.itinerary_mapper.from_json(itinerary) for itinerary in airport_json.get("itineraries")]
         airport = Airport(
             airport_json.get("name"),
             airport_json.get("address"),
@@ -28,4 +29,3 @@ class AirportMapper(BaseMapper[Airport]):
         airport.created_at = airport_json.get("created_at")
         airport.updated_at = airport_json.get("updated_at")
         return airport
-

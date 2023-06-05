@@ -7,6 +7,8 @@ from mappers.BaseMapper import BaseMapper
 
 
 class BookingMapper(BaseMapper[Booking]):
+    user_mapper = UserMapper()
+    flight_mapper = FlightMapper()
 
     def to_json(self, booking: Booking):
         return {
@@ -15,13 +17,13 @@ class BookingMapper(BaseMapper[Booking]):
             "updated_at": booking.updated_at,
             "date_of_booking": booking.date_of_booking,
             "seat_number": booking.seat_number,
-            "user": UserMapper.to_json(booking.user),
-            "flight": FlightMapper.to_json(booking.flight)
+            "user": self.user_mapper.to_json(booking.user),
+            "flight": self.flight_mapper.to_json(booking.flight)
         }
 
     def from_json(self, booking_json: dict):
-        user = UserMapper.from_json(booking_json["user"])
-        flight = FlightMapper.from_json(booking_json["flight"])
+        user = self.user_mapper.from_json(booking_json["user"])
+        flight = self.flight_mapper.from_json(booking_json["flight"])
         booking = Booking(
             booking_json.get("date_of_booking"),
             booking_json.get("seat_number"),

@@ -2,9 +2,10 @@ from models.Address import Address
 from mappers.BaseMapper import BaseMapper
 
 
-class AddressMapper(BaseMapper[Address]):
+class AddressMapper:
 
-    def to_json(self, address: Address):
+    @staticmethod
+    def to_json(address: Address):
         address_json = {
             "street": address.street,
             "street_number": address.street_number,
@@ -14,7 +15,8 @@ class AddressMapper(BaseMapper[Address]):
         }
         return address_json
 
-    def from_json(self, address_json: dict):
+    @staticmethod
+    def from_json(address_json: dict):
         address = Address(
             address_json.get("street"),
             address_json.get("street_number"),

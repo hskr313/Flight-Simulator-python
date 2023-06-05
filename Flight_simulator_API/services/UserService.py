@@ -16,7 +16,7 @@ class UserService:
     def get_user_by_email(self, email) -> Optional[User]:
         users = self.user_helper.read_all(self.file_path)
         for user_json in users:
-            user = UserMapper.from_json(user_json)
+            user = self.user_mapper.from_json(user_json)
             if user.email == email:
                 return user
         return None
