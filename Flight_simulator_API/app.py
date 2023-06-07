@@ -59,8 +59,3 @@ def test():
 
 if __name__ == '__main__':
     app.run()
-
-    #   TODO faire un decorateur qui get le user dans chaque requetes
-    #    pour voir si on a le droit d'effectuer un call API OU PAS
-
-    #   TODO finir les controllers de toute les classes

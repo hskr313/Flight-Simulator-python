@@ -4,8 +4,10 @@ from flask import request
 
 from JsonHelpers.BaseHelper import BaseHelper
 from JsonHelpers.FlightHelper import FlightHelper
+from JsonHelpers.ItineraryHelper import ItineraryHelper
 from mappers.BaseMapper import BaseMapper
 from mappers.FlightMapper import FlightMapper
+from mappers.ItineraryMapper import ItineraryMapper
 from models.Flight import Seat, Flight
 from services.CrudService import CrudService, Mapper, Helper, T
 
@@ -13,6 +15,8 @@ from services.CrudService import CrudService, Mapper, Helper, T
 class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
     def __init__(self, mapper: Mapper, helper: Helper, file_path):
         super().__init__(mapper, helper, file_path)
+        self.itinerary_mapper = ItineraryMapper()
+        self.itinerary_helper = ItineraryHelper(self.itinerary_mapper)
 
     def save_flight(self, flight_id=None):
         flight_json = request.get_json()
@@ -23,15 +27,20 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
         aircraft_id = flight_json.get("aircraft_id")
         aircraft = self.helper.read_one_by_id(aircraft_id, 'json_files/aircrafts.json')
 
-        #   TODO faire un upsert pour l'itineraire
-        itinerary_id = flight_json.get("itinerary_id")
-        itinerary = self.helper.read_one_by_id(itinerary_id, 'json_files/itineraries.json')
+        #   Upsert of itinerary
+        itinerary_json = flight_json.get("itinerary")
+        itinerary = self.itinerary_mapper.from_json(itinerary_json)
+        try:
+            saved_itinerary = self.itinerary_helper.save(itinerary, 'json_files/itineraries.json')
+        except Exception:
+            raise Exception("Could not save itinerary")
 
-        flight = Flight(distance=flight_json.get("distance"),
-                        pilot=pilot,
-                        aircraft=aircraft,
-                        itinerary=itinerary
-                        )
+        flight = Flight(
+            distance=flight_json.get("distance"),
+            pilot=pilot,
+            aircraft=aircraft,
+            itinerary=saved_itinerary
+        )
 
         if flight_id:
             flight.id = flight_id
@@ -43,3 +52,9 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
 
     def get_available_seats(self, flight) -> List[Seat]:
         return [seat for seat in flight.seats if not seat.occupied]
+
+    def get_all_flights_by_departure_airport(self, departure_airport):
+        return self.helper.get_all_flights_by_departure_airport(departure_airport)
+
+    def get_all_flights_by_arrival_airport(self, arrival_airport):
+        return self.helper.get_all_flights_by_arrival_airport(arrival_airport)

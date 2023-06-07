@@ -12,6 +12,9 @@ class FlightController:
         self.flight_service = flight_service
         self.file_path = file_path
         self.blueprint = Blueprint('flight', __name__)
+        self.blueprint.add_url_rule('/flights', "get_all_flights", self.get_all_action, methods=['GET'])
+        self.blueprint.add_url_rule('/flight/<int:flight_id>', "get_flight_by_id", self.get_one_by_id_action, methods=['GET'])
+        self.blueprint.add_url_rule('/flights', "add_flight", self.save_flight_action, methods=['POST'])
 
     @requires_roles('ADMIN')
     def get_all_action(self):
@@ -27,3 +30,7 @@ class FlightController:
     def save_flight_action(self, flight_id=None):
         saved_flight = self.flight_service.save_flight(flight_id)
         return jsonify(saved_flight), 201 if not flight_id else 200
+
+    @requires_roles('ADMIN')
+    def delete_action(self, flight_id):
+        return self.flight_service.delete(flight_id)
