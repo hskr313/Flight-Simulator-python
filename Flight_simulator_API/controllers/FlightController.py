@@ -5,12 +5,8 @@ from utils.RequestRole import requires_roles
 
 
 class FlightController:
-    def __init__(self,
-                 flight_service: FlightService,
-                 file_path
-                 ):
+    def __init__(self, flight_service: FlightService):
         self.flight_service = flight_service
-        self.file_path = file_path
         self.blueprint = Blueprint('flight', __name__)
         self.blueprint.add_url_rule('/flights', "get_all_flights", self.get_all_action, methods=['GET'])
         self.blueprint.add_url_rule('/flight/<int:flight_id>', "get_flight_by_id", self.get_one_by_id_action, methods=['GET'])
@@ -33,4 +29,5 @@ class FlightController:
 
     @requires_roles('ADMIN')
     def delete_action(self, flight_id):
-        return self.flight_service.delete(flight_id)
+        self.flight_service.delete(flight_id)
+        return jsonify(''), 204

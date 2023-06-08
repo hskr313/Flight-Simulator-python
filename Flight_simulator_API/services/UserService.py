@@ -1,22 +1,32 @@
 from typing import Optional
 
+from flask import request
+
 from mappers.UserMapper import UserMapper
 from models.User import User
+from services.CrudService import CrudService, Helper, Mapper
 from utils.UnicityChecker import UnicityChecker
 from JsonHelpers.UserHelper import UserHelper
 
 
-class UserService:
-    def __init__(self, user_mapper: UserMapper, user_helper: UserHelper, file_path):
-        self.file_path = "json_files/users.json"
-        self.test = file_path
-        self.user_mapper = user_mapper
-        self.user_helper = user_helper
+class UserService(CrudService[User, UserMapper, UserHelper]):
+    def __init__(self, mapper: Mapper, helper: Helper, file_path):
+        super().__init__(mapper, helper, file_path)
+
+    def save_user(self, user_id=None):
+        user_json = request.get_json()
+        user = self.mapper.from_json(user_json)
+        if user_id:
+            user.id = user_id
+        user = self.helper.save(user, self.file_path)
+        user_json = self.mapper.to_json(user)
+
+        return user_json
 
     def get_user_by_email(self, email) -> Optional[User]:
-        users = self.user_helper.read_all(self.file_path)
+        users = self.helper.read_all(self.file_path)
         for user_json in users:
-            user = self.user_mapper.from_json(user_json)
+            user = self.mapper.from_json(user_json)
             if user.email == email:
                 return user
         return None

@@ -2,10 +2,8 @@ from typing import Optional, List
 
 from flask import request
 
-from JsonHelpers.BaseHelper import BaseHelper
 from JsonHelpers.FlightHelper import FlightHelper
 from JsonHelpers.ItineraryHelper import ItineraryHelper
-from mappers.BaseMapper import BaseMapper
 from mappers.FlightMapper import FlightMapper
 from mappers.ItineraryMapper import ItineraryMapper
 from models.Flight import Seat, Flight

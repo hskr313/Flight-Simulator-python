@@ -2,5 +2,5 @@ from JsonHelpers.BaseHelper import BaseHelper
 from models.Aircraft import Aircraft
 
 
-class AircraftHepler(BaseHelper[Aircraft]):
+class AircraftHelper(BaseHelper[Aircraft]):
     pass

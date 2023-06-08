@@ -9,17 +9,9 @@ from services.AuthService import AuthService
 
 
 class AuthController:
-    def __init__(self, user_service: UserService,
-                 auth_service: AuthService,
-                 user_helper: UserHelper,
-                 user_mapper: UserMapper,
-                 file_path
-                 ):
-        self.user_mapper = user_mapper
-        self.user_helper = user_helper
+    def __init__(self, user_service: UserService, auth_service: AuthService):
         self.user_service = user_service
         self.auth_service = auth_service
-        self.file_path = file_path
         self.blueprint = Blueprint("auth", __name__)
         self.blueprint.add_url_rule('/login', 'login', self.login, methods=['POST'])
         self.blueprint.add_url_rule('/register', 'register', self.register, methods=['POST'])

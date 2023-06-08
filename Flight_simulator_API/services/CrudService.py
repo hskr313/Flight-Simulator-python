@@ -26,4 +26,4 @@ class CrudService(Generic[T, Mapper, Helper], ABC):
         return self.helper.save(obj, self.file_path)
 
     def delete(self, entity_id):
-        return self.helper.delete(entity_id, self.file_path)
+        self.helper.delete(entity_id, self.file_path)
