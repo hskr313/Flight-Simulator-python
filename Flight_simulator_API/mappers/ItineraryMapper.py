@@ -22,9 +22,9 @@ class ItineraryMapper(BaseMapper[Itinerary]):
         itinerary = Itinerary(
             airport_mapper.from_json(itinerary_json.get("departure_airport")),
             airport_mapper.from_json(itinerary_json.get("arrival_airport")),
-            itinerary_json.get("distance")
         )
         itinerary.id = itinerary_json.get("id")
         itinerary.created_at = itinerary_json.get("created_at")
         itinerary.updated_at = itinerary_json.get("updated_at")
+        itinerary.distance = itinerary_json.get("distance")
         return itinerary

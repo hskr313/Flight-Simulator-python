@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import Optional, List
 
 from flask import request
@@ -9,6 +10,7 @@ from JsonHelpers.ItineraryHelper import ItineraryHelper
 from mappers.FlightMapper import FlightMapper
 from mappers.ItineraryMapper import ItineraryMapper
 from models.Flight import Seat, Flight
+from models.Itinerary import Itinerary
 from services.CrudService import CrudService, Mapper, Helper, T
 
 
@@ -59,19 +61,29 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
     def get_all_flights_by_arrival_airport(self, arrival_airport):
         return self.helper.get_all_flights_by_arrival_airport(arrival_airport)
 
-    def get_coordinates(self, airport_name):
-        geolocator = Nominatim(user_agent="flight_Sim_app")
-        location = geolocator.geocode(airport_name)
-        if location is None:
-            return None
-        return location.latitude, location.longitude
+    def get_current_location(self, flight_id):
+        flight_json = self.read_one_by_id(flight_id)
 
-    def calculate_distance(self, start_latitude, start_longitude, end_latitude, end_longitude):
-        start_point = (start_latitude, start_longitude)
-        end_point = (end_latitude, end_longitude)
-        distance = geodesic(start_point, end_point).kilometers
-        return distance
+        departure_time = datetime.fromisoformat(flight_json.get("departure_time"))
+        arrival_time = datetime.fromisoformat(flight_json.get("arrival_time"))
+        current_time = datetime.now()
 
-    def calculate_flight_time(self, distance, aircraftspeed):
-        travel_time = distance / aircraftspeed
-        return travel_time
+        duration = (arrival_time - departure_time).total_seconds()
+        elapsed_time = (current_time - departure_time).total_seconds()
+
+        if elapsed_time < 0 or elapsed_time > duration:
+            return None  # The flight has not yet started or has already ended
+
+        traveled_distance_ratio = elapsed_time / duration
+
+        start_latitude, start_longitude = Itinerary.get_coordinates(flight_json.get("itinerary").get("departure_airport"))
+        end_latitude, end_longitude = Itinerary.get_coordinates(flight_json.get("itinerary").get("arrival_airport"))
+
+        current_latitude = start_latitude + traveled_distance_ratio * (end_latitude - start_latitude)
+        current_longitude = start_longitude + traveled_distance_ratio * (end_longitude - start_longitude)
+
+        return {
+            "latitude": current_latitude,
+            "longitude": current_longitude,
+            "current_time": current_time.isoformat()
+        }
