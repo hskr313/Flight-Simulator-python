@@ -1,6 +1,8 @@
 from typing import Optional, List
 
 from flask import request
+from geopy import Nominatim
+from geopy.distance import geodesic
 
 from JsonHelpers.FlightHelper import FlightHelper
 from JsonHelpers.ItineraryHelper import ItineraryHelper
@@ -56,3 +58,20 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
 
     def get_all_flights_by_arrival_airport(self, arrival_airport):
         return self.helper.get_all_flights_by_arrival_airport(arrival_airport)
+
+    def get_coordinates(self, airport_name):
+        geolocator = Nominatim(user_agent="flight_Sim_app")
+        location = geolocator.geocode(airport_name)
+        if location is None:
+            return None
+        return location.latitude, location.longitude
+
+    def calculate_distance(self, start_latitude, start_longitude, end_latitude, end_longitude):
+        start_point = (start_latitude, start_longitude)
+        end_point = (end_latitude, end_longitude)
+        distance = geodesic(start_point, end_point).kilometers
+        return distance
+
+    def calculate_flight_time(self, distance, aircraftspeed):
+        travel_time = distance / aircraftspeed
+        return travel_time
