@@ -20,16 +20,18 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
         flight_json = request.get_json()
 
         pilot_id = flight_json.get_json("pilot_id")
-        pilot = self.helper.read_one_by_id(pilot_id, 'json_files/users.json')
+        pilot = self.helper.read_one_by_id(pilot_id, "json_files/users.json")
 
         aircraft_id = flight_json.get("aircraft_id")
-        aircraft = self.helper.read_one_by_id(aircraft_id, 'json_files/aircrafts.json')
+        aircraft = self.helper.read_one_by_id(aircraft_id, "json_files/aircrafts.json")
 
         #   Upsert of itinerary
         itinerary_json = flight_json.get("itinerary")
         itinerary = self.itinerary_mapper.from_json(itinerary_json)
         try:
-            saved_itinerary = self.itinerary_helper.save(itinerary, 'json_files/itineraries.json')
+            saved_itinerary = self.itinerary_helper.save(
+                itinerary, "json_files/itineraries.json"
+            )
         except Exception:
             raise Exception("Could not save itinerary")
 
@@ -37,16 +39,24 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
             distance=flight_json.get("distance"),
             pilot=pilot,
             aircraft=aircraft,
-            itinerary=saved_itinerary
+            itinerary=saved_itinerary,
         )
 
         if flight_id:
             flight.id = flight_id
-
-        return self.helper.save(flight, self.file_path)
+        saved_flight = self.helper.save(flight, self.file_path)
+        flight_json = self.mapper.to_json(saved_flight)
+        return flight_json
 
     def get_seat(self, flight, seat_number) -> Optional[Seat]:
-        return next((seat for seat in flight.seats if seat.number == seat_number and not seat.occupied), None)
+        return next(
+            (
+                seat
+                for seat in flight.seats
+                if seat.number == seat_number and not seat.occupied
+            ),
+            None,
+        )
 
     def get_available_seats(self, flight) -> List[Seat]:
         return [seat for seat in flight.seats if not seat.occupied]

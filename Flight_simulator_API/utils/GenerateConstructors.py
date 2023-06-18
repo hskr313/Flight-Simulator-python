@@ -14,7 +14,7 @@ def multi_constructor(cls):
     """
     init = cls.__init__
 
-    params = init.__code__.co_varnames[1:init.__code__.co_argcount]
+    params = init.__code__.co_varnames[1: init.__code__.co_argcount]
 
     def new_init(self, **kwargs):
         init(self, **{k: kwargs[k] for k in params if k in kwargs})

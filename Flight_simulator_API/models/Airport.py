@@ -2,7 +2,6 @@ from models.BaseModel import BaseModel
 
 
 class Airport(BaseModel):
-
     def __init__(self, name, address, runways, itineraries):
         super().__init__()
         self.name = name

@@ -1,7 +1,7 @@
 from typing import TypeVar, Generic
-from abc import ABC,abstractmethod
+from abc import ABC, abstractmethod
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 class BaseMapper(Generic[T], ABC):

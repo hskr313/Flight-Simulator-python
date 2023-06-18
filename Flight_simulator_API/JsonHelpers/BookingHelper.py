@@ -5,7 +5,6 @@ from models.Booking import Booking
 
 
 class BookingHelper(BaseHelper[Booking]):
-
     def save(self, obj: T, file_path) -> Booking:
         return super().save(obj, file_path)
 

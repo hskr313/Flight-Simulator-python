@@ -5,7 +5,6 @@ from mappers.BaseMapper import BaseMapper, T
 
 
 class AircraftMapper(BaseMapper[Aircraft]):
-
     def to_json(self, aircraft: Aircraft):
         aircraft_json = {
             "id": aircraft.id,
@@ -15,7 +14,7 @@ class AircraftMapper(BaseMapper[Aircraft]):
             "available": aircraft.available,
             "company_name": aircraft.company_name,
             "max_speed": aircraft.max_speed,
-            "fuel_tank": aircraft.fuel_tank
+            "fuel_tank": aircraft.fuel_tank,
         }
 
         if isinstance(aircraft, CargoAircraft):
@@ -33,7 +32,7 @@ class AircraftMapper(BaseMapper[Aircraft]):
                 aircraft_json.get("company_name"),
                 aircraft_json.get("max_speed"),
                 aircraft_json.get("fuel_tank"),
-                aircraft_json.get("capacity")
+                aircraft_json.get("capacity"),
             )
         else:
             aircraft = PassengerAircraft(
@@ -42,7 +41,7 @@ class AircraftMapper(BaseMapper[Aircraft]):
                 aircraft_json.get("max_speed"),
                 aircraft_json.get("fuel_tank"),
                 aircraft_json.get("business_capacity"),
-                aircraft_json.get("economy_capacity")
+                aircraft_json.get("economy_capacity"),
             )
         aircraft.id = aircraft_json.get("id")
         aircraft.available = aircraft_json.get("available")

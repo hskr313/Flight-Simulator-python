@@ -5,7 +5,6 @@ from mappers.AddressMapper import AddressMapper
 
 
 class UserMapper(BaseMapper[User]):
-
     def to_json(self, user: User):
         user_json = {
             "id": user.id,
@@ -16,7 +15,7 @@ class UserMapper(BaseMapper[User]):
             "email": user.email,
             "password": user.password,
             "address": AddressMapper.to_json(user.address),
-            "roles": [role for role in user.roles]
+            "roles": [role for role in user.roles],
         }
 
         if isinstance(user, Pilot):
@@ -34,7 +33,7 @@ class UserMapper(BaseMapper[User]):
                 user_json.get("password"),
                 address,
                 user_json.get("roles"),
-                user_json.get("license_number")
+                user_json.get("license_number"),
             )
         else:
             user = User(
@@ -43,7 +42,7 @@ class UserMapper(BaseMapper[User]):
                 user_json.get("email"),
                 user_json.get("password"),
                 address,
-                user_json.get("roles")
+                user_json.get("roles"),
             )
 
         user.id = user_json.get("id")

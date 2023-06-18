@@ -3,9 +3,9 @@ from mappers.BaseMapper import BaseMapper
 
 
 class ItineraryMapper(BaseMapper[Itinerary]):
-
     def to_json(self, itinerary: Itinerary):
         from mappers.AirportMapper import AirportMapper
+
         airport_mapper = AirportMapper()
         return {
             "id": itinerary.id,
@@ -15,18 +15,19 @@ class ItineraryMapper(BaseMapper[Itinerary]):
             "arrival_time": itinerary.arrival_time,
             "departure_airport": airport_mapper.to_json(itinerary.departure_airport),
             "arrival_airport": airport_mapper.to_json(itinerary.arrival_airport),
-            "distance": itinerary.distance
+            "distance": itinerary.distance,
         }
 
     def from_json(self, itinerary_json: dict):
         from mappers.AirportMapper import AirportMapper
+
         airport_mapper = AirportMapper()
         itinerary = Itinerary(
             itinerary_json.get("departure_time"),
             itinerary_json.get("arrival_time"),
             airport_mapper.from_json(itinerary_json.get("departure_airport")),
             airport_mapper.from_json(itinerary_json.get("arrival_airport")),
-            itinerary_json.get("distance")
+            itinerary_json.get("distance"),
         )
         itinerary.id = itinerary_json.get("id")
         itinerary.created_at = itinerary_json.get("created_at")

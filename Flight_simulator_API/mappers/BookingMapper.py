@@ -18,7 +18,7 @@ class BookingMapper(BaseMapper[Booking]):
             "date_of_booking": booking.date_of_booking,
             "seat_number": booking.seat_number,
             "user": self.user_mapper.to_json(booking.user),
-            "flight": self.flight_mapper.to_json(booking.flight)
+            "flight": self.flight_mapper.to_json(booking.flight),
         }
 
     def from_json(self, booking_json: dict):
@@ -28,7 +28,7 @@ class BookingMapper(BaseMapper[Booking]):
             booking_json.get("date_of_booking"),
             booking_json.get("seat_number"),
             user,
-            flight
+            flight,
         )
         booking.id = booking_json.get("id")
         booking.created_at = booking_json.get("created_at")

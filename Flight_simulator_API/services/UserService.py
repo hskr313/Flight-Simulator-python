@@ -32,6 +32,4 @@ class UserService(CrudService[User, UserMapper, UserHelper]):
         return None
 
     def email_exists(self, email) -> bool:
-        return not UnicityChecker.check_unique_attribute(self.file_path, 'email', email)
-
-
+        return not UnicityChecker.check_unique_attribute(self.file_path, "email", email)
