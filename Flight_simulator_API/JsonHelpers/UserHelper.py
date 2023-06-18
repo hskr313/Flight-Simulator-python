@@ -6,6 +6,7 @@ from models.User import User
 
 
 class UserHelper(BaseHelper[User]):
+
     def __init__(self, mapper: UserMapper):
         super().__init__(mapper)
 
@@ -20,3 +21,5 @@ class UserHelper(BaseHelper[User]):
 
     def delete(self, user_id: int, file_path) -> None:
         super().delete(user_id, file_path)
+
+

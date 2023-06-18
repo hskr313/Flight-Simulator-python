@@ -4,6 +4,7 @@ from utils.GenerateConstructors import multi_constructor
 
 @multi_constructor
 class Booking(BaseModel):
+
     def __init__(self, date_of_booking=None, seat=None, user=None, flight=None):
         super().__init__()
         self.date_of_booking = date_of_booking

@@ -4,12 +4,13 @@ from mappers.BaseMapper import BaseMapper
 
 
 class RunwayMapper(BaseMapper[Runway]):
+
     def to_json(self, runway: Runway):
         return {
             "id": runway.id,
             "created_at": runway.created_at,
             "updated_at": runway.updated_at,
-            "current_aircraft": runway.available,
+            "current_aircraft": runway.available
         }
 
     def from_json(self, runway_json: dict):

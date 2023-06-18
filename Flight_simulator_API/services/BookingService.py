@@ -11,15 +11,16 @@ from services.CrudService import CrudService, Mapper, Helper
 
 
 class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
+
     def __init__(
-        self,
-        mapper: Mapper,
-        helper: Helper,
-        flight_helper: FlightHelper,
-        flight_mapper: FlightMapper,
-        user_helper: UserHelper,
-        user_mapper: UserMapper,
-        file_path,
+            self,
+            mapper: Mapper,
+            helper: Helper,
+            flight_helper: FlightHelper,
+            flight_mapper: FlightMapper,
+            user_helper: UserHelper,
+            user_mapper: UserMapper,
+            file_path
     ):
         super().__init__(mapper, helper, file_path)
         self.flight_helper = flight_helper
@@ -72,7 +73,7 @@ class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
         return self.user_mapper.from_json(user)
 
     def book_seat(self, seat_number, flight):
-        if seat_number <= 0 or seat_number > len(flight.seats):
+        if seat_number < 0 or seat_number >= len(flight.seats):
             raise ValueError("Seat number is incorrect")
 
         seat = flight.seats[seat_number - 1]

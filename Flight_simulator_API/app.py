@@ -10,7 +10,6 @@ from JsonHelpers.ItineraryHelper import ItineraryHelper
 from JsonHelpers.UserHelper import UserHelper
 from controllers.AuthController import AuthController
 from controllers.BookingController import BookingController
-from controllers.FlightController import FlightController
 from controllers.UserController import UserController
 from mappers.AirportMapper import AirportMapper
 from mappers.BookingMapper import BookingMapper
@@ -43,11 +42,19 @@ flight_helper = FlightHelper(flight_mapper)
 aircraft_helper = AircraftHelper(aircraft_mapper)
 
 #   Instance of all services
-user_file_path = "json_files/users.json"
-user_service = UserService(user_mapper, user_helper, user_file_path)
-auth_service = AuthService(user_service)
-flight_file_path = "json_files/flights.json"
-flight_service = FlightService(flight_mapper, flight_helper, flight_file_path)
+user_file_path = 'json_files/users.json'
+user_service = UserService(
+    user_mapper,
+    user_helper,
+    user_file_path
+)
+auth_service = AuthService()
+flight_file_path = 'json_files/flights.json'
+flight_service = FlightService(
+    flight_mapper,
+    flight_helper,
+    flight_file_path
+)
 booking_file_path = "json_files/bookings.json"
 booking_service = BookingService(
     booking_mapper,
@@ -56,23 +63,25 @@ booking_service = BookingService(
     flight_mapper,
     user_helper,
     user_mapper,
-    booking_file_path,
+    booking_file_path
 )
+
 
 #   Injection of all users/auth dependencies
 user_controller = UserController(user_service)
 app.register_blueprint(user_controller.blueprint)
-auth_controller = AuthController(user_service, auth_service, user_mapper)
+auth_controller = AuthController(user_service, auth_service)
 app.register_blueprint(auth_controller.blueprint)
 
 #   Injection of all bookings dependencies
 booking_controller = BookingController(booking_service)
 app.register_blueprint(booking_controller.blueprint)
 
-#   Injection of all flights dependencies
-flight_controller = FlightController(flight_service)
-app.register_blueprint(flight_controller.blueprint)
+
+@app.route('/test', methods=['GET'])
+def test():
+    return jsonify(datetime.datetime.now().isoformat()), 200
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run()

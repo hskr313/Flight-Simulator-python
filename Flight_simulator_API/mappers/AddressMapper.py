@@ -3,6 +3,7 @@ from mappers.BaseMapper import BaseMapper
 
 
 class AddressMapper:
+
     @staticmethod
     def to_json(address: Address):
         address_json = {
@@ -10,7 +11,7 @@ class AddressMapper:
             "street_number": address.street_number,
             "city": address.city,
             "postal_code": address.postal_code,
-            "country": address.country,
+            "country": address.country
         }
         return address_json
 
@@ -21,6 +22,7 @@ class AddressMapper:
             address_json.get("street_number"),
             address_json.get("city"),
             address_json.get("postal_code"),
-            address_json.get("country"),
+            address_json.get("country")
         )
         return address
+

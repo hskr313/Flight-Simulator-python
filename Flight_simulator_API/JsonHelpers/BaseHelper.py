@@ -4,10 +4,11 @@ import time
 from abc import ABC
 import json
 
-T = TypeVar("T")
+T = TypeVar('T')
 
 
 class BaseHelper(Generic[T], ABC):
+
     def __init__(self, mapper: BaseMapper):
         """
         Initializes the BaseHelper class with a given mapper.
@@ -39,7 +40,7 @@ class BaseHelper(Generic[T], ABC):
             for i, data in enumerate(datas):
                 if data["id"] == new_obj["id"]:
                     for key in new_obj:
-                        if key != "id":
+                        if key != 'id':
                             data[key] = new_obj[key]
                             new_obj["updated_at"] = int(time.time())
                     break
@@ -55,11 +56,11 @@ class BaseHelper(Generic[T], ABC):
 
     def read_all(self, file_path) -> List[dict]:
         """
-        Reads all objects from a JSON file.
+            Reads all objects from a JSON file.
 
-        :param file_path: The path of the file from where the objects will be read.
-        :return: A list of all objects.
-        :raises FileNotFoundError: If the file does not exist.
+            :param file_path: The path of the file from where the objects will be read.
+            :return: A list of all objects.
+            :raises FileNotFoundError: If the file does not exist.
         """
         try:
             with open(file_path, "r") as f:
@@ -81,7 +82,7 @@ class BaseHelper(Generic[T], ABC):
             with open(file_path, "r") as f:
                 datas = json.load(f)
                 for data in datas:
-                    if data["id"] == entity_id:
+                    if data['id'] == entity_id:
                         return data
         except Exception:
             raise Exception("Object not found")
@@ -99,7 +100,7 @@ class BaseHelper(Generic[T], ABC):
                 datas = json.load(f)
 
                 for i, data in enumerate(datas):
-                    if data["id"] == entity_id:
+                    if data['id'] == entity_id:
                         del datas[i]
 
                 f.seek(0)

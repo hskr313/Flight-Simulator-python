@@ -14,22 +14,16 @@ class AirportMapper(BaseMapper[Airport]):
             "name": airport.name,
             "address": airport.address,
             "runways": airport.runways,
-            "itineraries": [
-                self.itinerary_mapper.to_json(itinerary)
-                for itinerary in airport.itineraries
-            ],
+            "itineraries": [self.itinerary_mapper.to_json(itinerary) for itinerary in airport.itineraries]
         }
 
     def from_json(self, airport_json: dict):
-        itineraries = [
-            self.itinerary_mapper.from_json(itinerary)
-            for itinerary in airport_json.get("itineraries")
-        ]
+        itineraries = [self.itinerary_mapper.from_json(itinerary) for itinerary in airport_json.get("itineraries")]
         airport = Airport(
             airport_json.get("name"),
             airport_json.get("address"),
             airport_json.get("runways"),
-            itineraries,
+            itineraries
         )
         airport.id = airport_json.get("id")
         airport.created_at = airport_json.get("created_at")

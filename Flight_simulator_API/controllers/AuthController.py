@@ -9,47 +9,36 @@ from services.AuthService import AuthService
 
 
 class AuthController:
-    def __init__(
-        self,
-        user_service: UserService,
-        auth_service: AuthService,
-        user_mapper: UserMapper,
-    ):
+    def __init__(self, user_service: UserService, auth_service: AuthService):
         self.user_service = user_service
         self.auth_service = auth_service
-        self.user_mapper = user_mapper
-        self.file_path = "json_files/users.json"
         self.blueprint = Blueprint("auth", __name__)
-        self.blueprint.add_url_rule("/login", "login", self.login, methods=["POST"])
-        self.blueprint.add_url_rule(
-            "/register", "register", self.register, methods=["POST"]
-        )
+        self.blueprint.add_url_rule('/login', 'login', self.login, methods=['POST'])
+        self.blueprint.add_url_rule('/register', 'register', self.register, methods=['POST'])
 
     def register(self):
         data = request.get_json()
 
-        if self.user_service.email_exists(data.get("email")):
-            return jsonify({"message": "Email already registered"}), 400
+        if self.user_service.email_exists(data.get('email')):
+            return jsonify({'message': 'Email already registered'}), 400
 
-        if not AuthService.validate_roles(data.get("roles")):
-            return jsonify({"message": "Invalid role"}), 400
+        if not AuthService.validate_roles(data.get('roles')):
+            return jsonify({'message': 'Invalid role'}), 400
 
-        hashed_password = self.auth_service.hash_password(data.get("password"))
+        hashed_password = self.auth_service.hash_password(data.get('password'))
         data["password"] = hashed_password
 
         new_user = self.user_mapper.from_json(data)
 
-        saved_user = self.user_service.save(new_user)
+        saved_user = self.user_helper.save(new_user, self.file_path)
         safe_user = SafeUser(saved_user).to_json()
         return jsonify(safe_user), 201
 
     def login(self):
         data = request.get_json()
-        user = self.user_service.get_user_by_email(data.get("email"))
-        if not user or not self.auth_service.check_password_hash(
-            user.password, data.get("password")
-        ):
-            return jsonify({"message": "Invalid email or password"}), 401
+        user = self.user_service.get_user_by_email(data.get('email'))
+        if not user or not self.auth_service.check_password_hash(user.password, data.get('password')):
+            return jsonify({'message': 'Invalid email or password'}), 401
 
         safe_user = SafeUser(user).to_json()
         return jsonify(safe_user), 200

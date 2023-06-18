@@ -4,12 +4,13 @@ from typing import TypeVar, Generic
 from JsonHelpers.BaseHelper import BaseHelper
 from mappers.BaseMapper import BaseMapper
 
-T = TypeVar("T")
-Mapper = TypeVar("Mapper", bound=BaseMapper)
-Helper = TypeVar("Helper", bound=BaseHelper)
+T = TypeVar('T')
+Mapper = TypeVar('Mapper', bound=BaseMapper)
+Helper = TypeVar('Helper', bound=BaseHelper)
 
 
 class CrudService(Generic[T, Mapper, Helper], ABC):
+
     def __init__(self, mapper: Mapper, helper: Helper, file_path):
         self.mapper = mapper
         self.helper = helper

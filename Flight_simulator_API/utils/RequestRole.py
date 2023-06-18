@@ -35,12 +35,12 @@ def requires_roles(*roles):
             user = request.headers.get("Authorization")
 
             if user is None:
-                return jsonify({"message": "No user provided"}), 401
+                return jsonify({'message': 'No user provided'}), 401
 
             user = json.loads(user)
 
-            if not any(role in roles for role in user.get("roles", [])):
-                return jsonify({"message": "Unauthorized"}), 403
+            if not any(role in roles for role in user.get('roles', [])):
+                return jsonify({'message': 'Unauthorized'}), 403
 
             return f(*args, **kwargs)
 
