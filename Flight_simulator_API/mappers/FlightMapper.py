@@ -36,24 +36,23 @@ class FlightMapper(BaseMapper[Flight]):
             "id": flight.id,
             "created_at": flight.created_at,
             "updated_at": flight.updated_at,
-            # "stopovers": [ItineraryMapper.to_json(itinerary) for itinerary in flight.stopovers],
-            "distance": flight.distance,
             "pilot": self.user_mapper.to_json(flight.pilot),
             "aircraft": self.aircraft_mapper.to_json(flight.aircraft),
-            "itinerary": self.itinerary_mapper.to_json(flight.itinerary)
+            "itinerary": self.itinerary_mapper.to_json(flight.itinerary),
+            "departure_time": flight.departure_time,
+            "arrival_time": flight.arrival_time,
         }
         if isinstance(flight.aircraft, PassengerAircraft):
             flight_json["seats"] = [self.seat_mapper.to_json(seat) for seat in flight.seats]
         return
 
     def from_json(self, flight_json: dict):
-        # stopovers = [ItineraryMapper.from_json(itinerary_json) for itinerary_json in flight_json.get("stopovers", [])]
         pilot = self.user_mapper.from_json(flight_json.get("pilot"))
         aircraft = self.aircraft_mapper.from_json(flight_json.get("aircraft"))
         itinerary = self.itinerary_mapper.from_json(flight_json.get("itinerary"))
         flight = Flight(
-            # stopovers,
-            flight_json.get("distance"),
+            flight_json.get("departure_time"),
+            flight_json.get("arrival_time"),
             pilot,
             aircraft,
             itinerary,

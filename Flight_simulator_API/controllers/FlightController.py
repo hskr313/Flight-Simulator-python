@@ -11,6 +11,7 @@ class FlightController:
         self.blueprint.add_url_rule('/flights', "get_all_flights", self.get_all_action, methods=['GET'])
         self.blueprint.add_url_rule('/flight/<int:flight_id>', "get_flight_by_id", self.get_one_by_id_action, methods=['GET'])
         self.blueprint.add_url_rule('/flights', "add_flight", self.save_flight_action, methods=['POST'])
+        self.blueprint.add_url_rule('/flight/<int:flight_id>/location', "get_flight_location", self.get_flight_location, methods=['GET'])
 
     @requires_roles('ADMIN')
     def get_all_action(self):
@@ -31,3 +32,9 @@ class FlightController:
     def delete_action(self, flight_id):
         self.flight_service.delete(flight_id)
         return jsonify(''), 204
+
+    def get_flight_location(self, flight_id):
+        current_location = self.flight_service.get_current_location(flight_id)
+        if current_location is None:
+            return jsonify('The flight has not yet started or has already ended'), 400
+        return jsonify(current_location), 200
