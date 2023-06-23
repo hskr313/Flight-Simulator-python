@@ -5,8 +5,18 @@ from mappers.BaseMapper import BaseMapper, T
 
 
 class AircraftMapper(BaseMapper[Aircraft]):
+    """
+    This class serves as a mapper for Aircraft objects, providing methods to convert Aircraft objects to JSON,
+    and JSON to Aircraft objects. It supports both CargoAircraft and PassengerAircraft.
+    """
 
     def to_json(self, aircraft: Aircraft):
+        """
+        Converts an Aircraft object to a dictionary (JSON).
+
+        :param aircraft: Aircraft object to be converted.
+        :return: A dictionary representation of the aircraft.
+        """
         aircraft_json = {
             "id": aircraft.id,
             "created_at": aircraft.created_at,
@@ -27,6 +37,12 @@ class AircraftMapper(BaseMapper[Aircraft]):
         return aircraft_json
 
     def from_json(self, aircraft_json: dict):
+        """
+        Converts a dictionary (JSON) to an Aircraft object.
+
+        :param aircraft_json: The dictionary representation of an aircraft.
+        :return: An Aircraft object created from the dictionary.
+        """
         if "capacity" in aircraft_json:
             aircraft = CargoAircraft(
                 aircraft_json.get("model"),

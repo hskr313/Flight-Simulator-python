@@ -11,6 +11,24 @@ from services.CrudService import CrudService, Mapper, Helper
 
 
 class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
+    """
+    A service class for managing bookings.
+
+    Args:
+        mapper (Mapper): The mapper for mapping booking objects.
+        helper (Helper): The helper for performing CRUD operations on bookings.
+        flight_helper (FlightHelper): The helper for performing operations on flight data.
+        flight_mapper (FlightMapper): The mapper for mapping flight objects.
+        user_helper (UserHelper): The helper for performing operations on user data.
+        user_mapper (UserMapper): The mapper for mapping user objects.
+        file_path (str): The file path for storing booking data.
+
+    Attributes:
+        flight_helper (FlightHelper): The helper for performing operations on flight data.
+        user_helper (UserHelper): The helper for performing operations on user data.
+        flight_mapper (FlightMapper): The mapper for mapping flight objects.
+        user_mapper (UserMapper): The mapper for mapping user objects.
+    """
 
     def __init__(
             self,
@@ -29,6 +47,15 @@ class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
         self.user_mapper = user_mapper
 
     def save_passenger_booking(self, booking_id=None):
+        """
+        Saves a passenger booking.
+
+        Args:
+            booking_id (str, optional): The ID of the booking. Defaults to None.
+
+        Returns:
+            dict: The JSON representation of the saved booking.
+        """
         booking_json = request.get_json()
 
         booking = self.mapper.form_to_entity()
@@ -48,6 +75,15 @@ class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
         return booking_json
 
     def save_cargo_booking(self, booking_id):
+        """
+        Saves a cargo booking.
+
+        Args:
+            booking_id (str): The ID of the booking.
+
+        Returns:
+            dict: The JSON representation of the saved booking.
+        """
         booking_json = request.get_json()
 
         booking = self.mapper.form_to_entity()
@@ -65,14 +101,45 @@ class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
         return booking_json
 
     def get_flight_from_booking(self, flight_id):
+        """
+        Retrieves a flight object based on the flight ID.
+
+        Args:
+            flight_id (str): The ID of the flight.
+
+        Returns:
+            Flight: The flight object.
+        """
         flight = self.flight_helper.read_one_by_id(flight_id, "json_files/flights.json")
         return self.flight_mapper.from_json(flight)
 
     def get_user_from_booking(self, user_id):
+        """
+        Retrieves a user object based on the user ID.
+
+        Args:
+            user_id (str): The ID of the user.
+
+        Returns:
+            User: The user object.
+        """
         user = self.user_helper.read_one_by_id(user_id, "json_files/users.json")
         return self.user_mapper.from_json(user)
 
     def book_seat(self, seat_number, flight):
+        """
+        Books a seat on a flight.
+
+        Args:
+            seat_number (int): The seat number.
+            flight (Flight): The flight object.
+
+        Returns:
+            Seat: The booked seat.
+
+        Raises:
+            ValueError: If the seat number is incorrect or unavailable.
+        """
         if seat_number < 0 or seat_number >= len(flight.seats):
             raise ValueError("Seat number is incorrect")
 
