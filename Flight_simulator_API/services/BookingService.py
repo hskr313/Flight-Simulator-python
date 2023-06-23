@@ -10,7 +10,7 @@ from models.Booking import Booking
 from services.CrudService import CrudService, Mapper, Helper
 
 
-class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
+class xBookingService(CrudService[Booking, BookingMapper, BookingHelper]):
     """
     A service class for managing bookings.
 
@@ -60,8 +60,12 @@ class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
 
         booking = self.mapper.form_to_entity()
 
-        user = self.get_user_from_booking(booking_json.get("user_id"))
-        flight = self.get_flight_from_booking(booking_json.get("flight_id"))
+        user = self.user_helper.read_one_by_id(booking_json.get("user_id"), 'json_files/users.json')
+        user = self.user_mapper.from_json(user)
+
+        flight = self.flight_helper.read_one_by_id(booking_json.get("flight_id"), 'json_files/flights.json')
+        flight = self.flight_mapper.from_json(flight)
+
         booking_seat = self.book_seat(booking_json.get("seat_number"), flight)
 
         booking.user = user
