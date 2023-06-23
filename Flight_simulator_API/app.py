@@ -98,7 +98,7 @@ app.register_blueprint(airport_controller.blueprint)
 
 #   Injection all aircrafts dependencies
 aircraft_controller = AircraftController(aircraft_service)
-app.register_blueprint(airport_controller.blueprint)
+app.register_blueprint(aircraft_controller.blueprint)
 
 #   Injection all itineraries dependencies
 itinerary_controller = ItineraryController(itinerary_service)
