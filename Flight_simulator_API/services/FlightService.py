@@ -5,10 +5,14 @@ from flask import request
 from geopy import Nominatim
 from geopy.distance import geodesic
 
+from JsonHelpers.AircraftHelper import AircraftHelper
 from JsonHelpers.FlightHelper import FlightHelper
 from JsonHelpers.ItineraryHelper import ItineraryHelper
+from JsonHelpers.UserHelper import UserHelper
+from mappers.AircraftMapper import AircraftMapper
 from mappers.FlightMapper import FlightMapper
 from mappers.ItineraryMapper import ItineraryMapper
+from mappers.UserMapper import UserMapper
 from models.Flight import Seat, Flight
 from models.Itinerary import Itinerary
 from services.CrudService import CrudService, Mapper, Helper, T
@@ -32,6 +36,10 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
         super().__init__(mapper, helper, file_path)
         self.itinerary_mapper = ItineraryMapper()
         self.itinerary_helper = ItineraryHelper(self.itinerary_mapper)
+        self.user_mapper = UserMapper()
+        self.user_helper = UserHelper(self.user_mapper)
+        self.aircraft_mapper = AircraftMapper()
+        self.aircraft_helper = AircraftHelper(self.aircraft_mapper)
 
     def save_flight(self, flight_id=None):
         """
@@ -46,24 +54,23 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
         flight_json = request.get_json()
 
         pilot_id = flight_json.get_json("pilot_id")
-        pilot = self.helper.read_one_by_id(pilot_id, 'json_files/users.json')
+        pilot = self.user_helper.read_one_by_id(pilot_id, 'json_files/users.json')
+        pilot = self.user_mapper.from_json(pilot)
 
         aircraft_id = flight_json.get("aircraft_id")
-        aircraft = self.helper.read_one_by_id(aircraft_id, 'json_files/aircrafts.json')
+        aircraft = self.aircraft_helper.read_one_by_id(aircraft_id, 'json_files/aircrafts.json')
+        aircraft = self.aircraft_mapper.from_json(aircraft)
 
         #   Upsert of itinerary
-        itinerary_json = flight_json.get("itinerary")
+        itinerary_id = flight_json.get("itinerary_id")
+        itinerary_json = self.itinerary_helper.read_one_by_id(itinerary_id, 'json_files/itineraries.json')
         itinerary = self.itinerary_mapper.from_json(itinerary_json)
-        try:
-            saved_itinerary = self.itinerary_helper.save(itinerary, 'json_files/itineraries.json')
-        except Exception:
-            raise Exception("Could not save itinerary")
 
         flight = Flight(
-            distance=flight_json.get("distance"),
             pilot=pilot,
             aircraft=aircraft,
-            itinerary=saved_itinerary
+            itinerary=itinerary,
+            departure_time=flight_json.get("departure_time")
         )
 
         if flight_id:
@@ -146,7 +153,8 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
 
         traveled_distance_ratio = elapsed_time / duration
 
-        start_latitude, start_longitude = Itinerary.get_coordinates(flight_json.get("itinerary").get("departure_airport"))
+        start_latitude, start_longitude = Itinerary.get_coordinates(
+            flight_json.get("itinerary").get("departure_airport"))
         end_latitude, end_longitude = Itinerary.get_coordinates(flight_json.get("itinerary").get("arrival_airport"))
 
         current_latitude = start_latitude + traveled_distance_ratio * (end_latitude - start_latitude)

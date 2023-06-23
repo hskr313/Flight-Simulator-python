@@ -34,14 +34,13 @@ class Flight(BaseModel):
         arrival_time: The arrival time of the flight.
         seats: A list of seats in the aircraft (only present if the aircraft is a PassengerAircraft).
     """
-    def __init__(self, pilot, aircraft, itinerary, departure_time, arrival_time):
+    def __init__(self, pilot, aircraft, itinerary, departure_time):
         """
         Initializes a new instance of the Flight class.
         :param pilot: The pilot of the flight.
         :param aircraft: The aircraft used for the flight.
         :param itinerary: The itinerary of the flight.
         :param departure_time: The departure time of the flight.
-        :param arrival_time: The arrival time of the flight.
         """
         super().__init__()
         self.pilot = pilot

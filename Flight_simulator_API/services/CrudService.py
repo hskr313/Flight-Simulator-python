@@ -1,5 +1,5 @@
 from abc import ABC
-from typing import TypeVar, Generic
+from typing import TypeVar, Generic, List
 
 from JsonHelpers.BaseHelper import BaseHelper
 from mappers.BaseMapper import BaseMapper
@@ -24,7 +24,7 @@ class CrudService(Generic[T, Mapper, Helper], ABC):
         self.helper = helper
         self.file_path = file_path
 
-    def read_all(self):
+    def read_all(self) -> List[dict]:
         """
         Reads all entities.
 
@@ -33,7 +33,7 @@ class CrudService(Generic[T, Mapper, Helper], ABC):
         """
         return self.helper.read_all(self.file_path)
 
-    def read_one_by_id(self, entity_id):
+    def read_one_by_id(self, entity_id) -> dict:
         """
         Reads a single entity by its ID.
 
@@ -45,7 +45,7 @@ class CrudService(Generic[T, Mapper, Helper], ABC):
         """
         return self.helper.read_one_by_id(entity_id, self.file_path)
 
-    def save(self, obj: T):
+    def save(self, obj: T) -> T:
         """
         Saves an entity.
 
@@ -57,7 +57,7 @@ class CrudService(Generic[T, Mapper, Helper], ABC):
         """
         return self.helper.save(obj, self.file_path)
 
-    def delete(self, entity_id):
+    def delete(self, entity_id) -> None:
         """
         Deletes an entity by its ID.
 
