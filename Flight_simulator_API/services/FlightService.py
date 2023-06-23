@@ -41,7 +41,7 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
         self.aircraft_mapper = AircraftMapper()
         self.aircraft_helper = AircraftHelper(self.aircraft_mapper)
 
-    def save_flight(self, flight_id=None):
+    def save_flight(self, flight_id=None) -> Flight:
         """
         Saves a flight.
 
@@ -53,7 +53,7 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
         """
         flight_json = request.get_json()
 
-        pilot_id = flight_json.get_json("pilot_id")
+        pilot_id = flight_json.get("pilot_id")
         pilot = self.user_helper.read_one_by_id(pilot_id, 'json_files/users.json')
         pilot = self.user_mapper.from_json(pilot)
 

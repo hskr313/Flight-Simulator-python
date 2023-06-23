@@ -47,7 +47,7 @@ class FlightController:
         flight = self.flight_service.read_one_by_id(flight_id)
         return jsonify(flight), 200
 
-    @requires_roles('ADMIN')
+    # @requires_roles('ADMIN')
     def save_flight_action(self, flight_id=None):
         """
         Save a flight. This method requires ADMIN role.
@@ -56,8 +56,9 @@ class FlightController:
         :param flight_id: (optional) ID of the flight to be updated.
         :return: a JSON response with the saved flight's data.
         """
-        saved_flight = self.flight_service.save_flight(flight_id)
-        return jsonify(saved_flight), 201 if not flight_id else 200
+        flight = self.flight_service.save_flight(flight_id)
+        flight_json = self.flight_mapper.to_json(flight)
+        return jsonify(flight_json), 201 if not flight_id else 200
 
     @requires_roles('ADMIN')
     def delete_action(self, flight_id):

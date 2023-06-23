@@ -22,5 +22,41 @@
         "fuel_tank": 500,
         "business_capacity": 10,
         "economy_capacity": 50
+    },
+    {
+        "id": 3,
+        "created_at": 1687543053,
+        "updated_at": 1687543053,
+        "model": "Plane",
+        "available": null,
+        "company_name": "Pegasus",
+        "max_speed": 1000,
+        "fuel_tank": 500,
+        "business_capacity": 10,
+        "economy_capacity": 50
+    },
+    {
+        "id": 4,
+        "created_at": 1687543072,
+        "updated_at": 1687543072,
+        "model": "Avion",
+        "available": null,
+        "company_name": "Bled",
+        "max_speed": 1000,
+        "fuel_tank": 500,
+        "business_capacity": 10,
+        "economy_capacity": 50
+    },
+    {
+        "id": 5,
+        "created_at": 1687543101,
+        "updated_at": 1687543101,
+        "model": "F-16",
+        "available": null,
+        "company_name": "Army",
+        "max_speed": 8000,
+        "fuel_tank": 500,
+        "business_capacity": 10,
+        "economy_capacity": 50
     }
 ]

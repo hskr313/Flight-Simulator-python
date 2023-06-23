@@ -1,3 +1,34 @@
 [
-
+    {
+        "id": 1,
+        "created_at": 1687544356,
+        "updated_at": 1687544356,
+        "departure_airport": {
+            "id": 4,
+            "created_at": 1687542904,
+            "updated_at": 1687542904,
+            "name": "Charleroi",
+            "address": {
+                "street": "Rue de l'aeroport",
+                "street_number": 15,
+                "city": "Charleroi",
+                "postal_code": 6060,
+                "country": "Belgique"
+            }
+        },
+        "arrival_airport": {
+            "id": 7,
+            "created_at": 1687543163,
+            "updated_at": 1687543163,
+            "name": "Beyrouth",
+            "address": {
+                "street": "Rue de test",
+                "street_number": 10,
+                "city": "Beyrouth",
+                "postal_code": 8000,
+                "country": "Liban"
+            }
+        },
+        "distance": 0.0
+    }
 ]

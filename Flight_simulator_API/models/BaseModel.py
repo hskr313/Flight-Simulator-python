@@ -12,6 +12,6 @@ class BaseModel:
         Initializes a new instance of the BaseModel class.
         Sets the 'id', 'created_at' and 'updated_at' attributes to their default values.
         """
-        self.id = 0
+        self.id = None
         self.created_at = datetime.now()
         self.updated_at = self.created_at

@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from models.BaseModel import BaseModel
 from models.PassengerAircraft import PassengerAircraft
 from utils.GenerateConstructors import multi_constructor
@@ -22,7 +24,7 @@ class Seat:
         self.occupied = False
 
 
-@multi_constructor
+# @multi_constructor
 class Flight(BaseModel):
     """
     The Flight class represents a flight. It extends the BaseModel class with several additional attributes.
@@ -46,8 +48,13 @@ class Flight(BaseModel):
         self.pilot = pilot
         self.aircraft = aircraft
         self.itinerary = itinerary
-        self.departure_time = departure_time
-        self.arrival_time = departure_time + self.calculate_flight_time(self.itinerary.distance, self.aircraft.max_speed)
+        if isinstance(departure_time, str):
+            self.departure_time = datetime.fromisoformat(departure_time)
+        else:
+            self.departure_time = departure_time
+        flight_time_minute = self.calculate_flight_time(self.itinerary.distance, self.aircraft.max_speed)
+        self.arrival_time = self.departure_time + timedelta(minutes=flight_time_minute)
+
         if isinstance(aircraft, PassengerAircraft):
             self.seats = [Seat(i + 1, 'business') for i in range(aircraft.business_capacity)] + \
                          [Seat(i + 1 + aircraft.business_capacity, 'economy') for i in range(aircraft.economy_capacity)]
@@ -62,5 +69,5 @@ class Flight(BaseModel):
         :param aircraftspeed: The speed of the aircraft.
         :return: The flight time.
         """
-        travel_time = distance / aircraftspeed
+        travel_time = distance / aircraftspeed * 60
         return travel_time

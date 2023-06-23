@@ -53,6 +53,7 @@ class BaseHelper(Generic[T], ABC):
                 f.truncate()
             return self.mapper.from_json(new_obj)
         except Exception:
+            print(new_obj)
             raise Exception("Error occurred during save operation")
 
     def read_all(self, file_path) -> List[dict]:

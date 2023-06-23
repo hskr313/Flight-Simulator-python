@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from mappers.AircraftMapper import AircraftMapper
 from mappers.AirportMapper import AirportMapper
 from mappers.ItineraryMapper import ItineraryMapper
@@ -34,8 +36,8 @@ class SeatMapper(BaseMapper[Seat]):
         :return: A Seat object.
         """
         seat = Seat(
-            seat_json.get("seat_class"),
-            seat_json.get("seat_number")
+            seat_json.get("seat_number"),
+            seat_json.get("seat_class")
         )
         seat.occupied = seat_json.get("occupied")
         return seat
@@ -67,12 +69,13 @@ class FlightMapper(BaseMapper[Flight]):
             "pilot": self.user_mapper.to_json(flight.pilot),
             "aircraft": self.aircraft_mapper.to_json(flight.aircraft),
             "itinerary": self.itinerary_mapper.to_json(flight.itinerary),
-            "departure_time": flight.departure_time,
-            "arrival_time": flight.arrival_time,
+            "departure_time": flight.departure_time.isoformat(),
+            "arrival_time": flight.arrival_time.isoformat(),
+
         }
         if isinstance(flight.aircraft, PassengerAircraft):
             flight_json["seats"] = [self.seat_mapper.to_json(seat) for seat in flight.seats]
-        return
+        return flight_json
 
     def from_json(self, flight_json: dict):
         """
@@ -84,13 +87,27 @@ class FlightMapper(BaseMapper[Flight]):
         pilot = self.user_mapper.from_json(flight_json.get("pilot"))
         aircraft = self.aircraft_mapper.from_json(flight_json.get("aircraft"))
         itinerary = self.itinerary_mapper.from_json(flight_json.get("itinerary"))
+        departure_time = flight_json.get("departure_time")
+
+        if isinstance(departure_time, str):
+            departure_time = datetime.fromisoformat(departure_time)
         flight = Flight(
-            flight_json.get("departure_time"),
-            flight_json.get("arrival_time"),
             pilot,
             aircraft,
             itinerary,
+            departure_time
         )
+
+        arrival_time = flight_json.get("arrival_time")
+        if isinstance(arrival_time, str):
+            arrival_time = datetime.fromisoformat(arrival_time)
+        flight.arrival_time = arrival_time
+
         if isinstance(aircraft, PassengerAircraft):
             flight.seats = [self.seat_mapper.from_json(seat) for seat in flight_json.get("seats")]
+
         flight.id = flight_json.get("id")
+        flight.created_at = flight_json.get("created_at")
+        flight.updated_at = flight_json.get("updated_at")
+
+        return flight

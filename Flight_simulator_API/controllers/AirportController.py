@@ -10,7 +10,7 @@ class AirportController:
     def __init__(self, airport_service: AirportService):
         self.airport_service = airport_service
         self.airport_mapper = AirportMapper()
-        self.blueprint = Blueprint('airport', __name__)
+        self.blueprint = Blueprint('airports', __name__)
         self.blueprint.add_url_rule('/airports', 'get_all', self.get_all_action, methods=['GET'])
         self.blueprint.add_url_rule('/airports/<int:airport_id>', 'get_one_by_id', self.get_one_by_id_action,
                                     methods=['GET'])

@@ -1,19 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "Charles De Gaulle",
-        "address": "Roissy-en-France",
-        "runways": 4,
-        "itinerary": []
-    },
-    {
-        "id": 2,
-        "name": "Beyrouth airport",
-        "address": "Beyrouth",
-        "runways": 4,
-        "itinerary": []
-    },
-    {
         "id": 3,
         "created_at": 1687541210,
         "updated_at": 1687541210,
@@ -24,5 +10,57 @@
         "fuel_tank": 500,
         "business_capacity": null,
         "economy_capacity": null
+    },
+    {
+        "id": 4,
+        "created_at": 1687542904,
+        "updated_at": 1687542904,
+        "name": "Charleroi",
+        "address": {
+            "street": "Rue de l'aeroport",
+            "street_number": 15,
+            "city": "Charleroi",
+            "postal_code": 6060,
+            "country": "Belgique"
+        }
+    },
+    {
+        "id": 5,
+        "created_at": 1687543119,
+        "updated_at": 1687543119,
+        "name": "Bruxelles",
+        "address": {
+            "street": "Rue du Zaventem",
+            "street_number": 110,
+            "city": "Bruxelles",
+            "postal_code": 1000,
+            "country": "Belgique"
+        }
+    },
+    {
+        "id": 6,
+        "created_at": 1687543127,
+        "updated_at": 1687543127,
+        "name": "Anvers",
+        "address": {
+            "street": "Rue de Bart",
+            "street_number": 111580,
+            "city": "Anvers",
+            "postal_code": 7000,
+            "country": "Belgique"
+        }
+    },
+    {
+        "id": 7,
+        "created_at": 1687543163,
+        "updated_at": 1687543163,
+        "name": "Beyrouth",
+        "address": {
+            "street": "Rue de test",
+            "street_number": 10,
+            "city": "Beyrouth",
+            "postal_code": 8000,
+            "country": "Liban"
+        }
     }
 ]

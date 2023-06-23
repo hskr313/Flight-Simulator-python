@@ -26,7 +26,7 @@ class ItineraryService(CrudService[Itinerary, ItineraryMapper, ItineraryHelper])
     def save(self, itinerary_id=None):
         itinerary_json = request.get_json()
 
-        departure_airport = itinerary_json.get_json("departure_airport_id")
+        departure_airport = itinerary_json.get("departure_airport_id")
         departure_airport = self.airport_helper.read_one_by_id(departure_airport, 'json_files/airports.json')
         departure_airport = self.airport_mapper.from_json(departure_airport)
 
