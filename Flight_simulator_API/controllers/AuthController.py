@@ -9,6 +9,17 @@ from services.AuthService import AuthService
 
 
 class AuthController:
+    """
+    Controller for authentication. It provides methods for user registration and login.
+    """
+
+    def __init__(self, user_service: UserService, auth_service: AuthService):
+        """
+        Initialize the AuthController with the necessary services.
+
+        :param user_service: Service responsible for user-related operations.
+        :param auth_service: Service responsible for authentication-related operations.
+        """
     def __init__(self, user_service: UserService, auth_service: AuthService, user_mapper: UserMapper):
         self.user_service = user_service
         self.auth_service = auth_service
@@ -18,6 +29,12 @@ class AuthController:
         self.blueprint.add_url_rule('/register', 'register', self.register, methods=['POST'])
 
     def register(self):
+        """
+        Register a new user based on the provided data. Email must be unique, roles must be valid,
+        and password is hashed before storage.
+
+        :return: a JSON response with either an error message or the registered user's data.
+        """
         data = request.get_json()
 
         if self.user_service.email_exists(data.get('email')):
@@ -36,6 +53,11 @@ class AuthController:
         return jsonify(safe_user), 201
 
     def login(self):
+        """
+        Log in a user based on the provided email and password.
+
+        :return: a JSON response with either an error message or the logged in user's data.
+        """
         data = request.get_json()
         user = self.user_service.get_user_by_email(data.get('email'))
         if not user or not self.auth_service.check_password_hash(user.password, data.get('password')):

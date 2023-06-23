@@ -3,8 +3,18 @@ from mappers.BaseMapper import BaseMapper
 
 
 class ItineraryMapper(BaseMapper[Itinerary]):
+    """
+    The ItineraryMapper class handles the conversion of Itinerary objects to JSON-compatible dictionaries and vice versa.
+    It makes use of the AirportMapper to properly handle the conversion of associated Airport objects within an Itinerary.
+    """
 
     def to_json(self, itinerary: Itinerary):
+        """
+        Converts an Itinerary object to a dictionary that can be easily converted to JSON.
+
+        :param itinerary: The Itinerary object to be converted.
+        :return: A dictionary representing the Itinerary object.
+        """
         from mappers.AirportMapper import AirportMapper
         airport_mapper = AirportMapper()
         return {
@@ -17,6 +27,12 @@ class ItineraryMapper(BaseMapper[Itinerary]):
         }
 
     def from_json(self, itinerary_json: dict):
+        """
+        Converts a dictionary (from a JSON) to an Itinerary object.
+
+        :param itinerary_json: The dictionary to be converted.
+        :return: An Itinerary object.
+        """
         from mappers.AirportMapper import AirportMapper
         airport_mapper = AirportMapper()
         itinerary = Itinerary(
