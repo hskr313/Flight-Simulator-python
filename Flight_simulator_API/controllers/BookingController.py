@@ -18,7 +18,7 @@ class BookingController:
         :param booking_service: Service responsible for booking-related operations.
         """
         self.booking_service = booking_service
-        self.blueprint = Blueprint('booking', __name__)
+        self.blueprint = Blueprint('bookings', __name__)
         self.blueprint.add_url_rule('/bookings', 'get_all', self.get_all, methods=['GET'])
         self.blueprint.add_url_rule('/booking/<int:booking_id>', 'get_one_by_id', self.get_one_by_id, methods=['GET'])
         self.blueprint.add_url_rule('/bookings', 'add_passenger_booking', self.save_passenger_booking, methods=['POST'])

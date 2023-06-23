@@ -30,5 +30,37 @@
             }
         },
         "distance": 0.0
+    },
+    {
+        "id": 2,
+        "created_at": 1687552767,
+        "updated_at": 1687552767,
+        "departure_airport": {
+            "id": 7,
+            "created_at": 1687543163,
+            "updated_at": 1687543163,
+            "name": "Beyrouth",
+            "address": {
+                "street": "Rue de test",
+                "street_number": 10,
+                "city": "Beyrouth",
+                "postal_code": 8000,
+                "country": "Liban"
+            }
+        },
+        "arrival_airport": {
+            "id": 5,
+            "created_at": 1687543119,
+            "updated_at": 1687543119,
+            "name": "Bruxelles",
+            "address": {
+                "street": "Rue du Zaventem",
+                "street_number": 110,
+                "city": "Bruxelles",
+                "postal_code": 1000,
+                "country": "Belgique"
+            }
+        },
+        "distance": 3143.5973094121264
     }
 ]

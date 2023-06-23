@@ -1,3 +1,6 @@
+import datetime
+from time import timezone
+
 from flask import request
 
 from JsonHelpers.BookingHelper import BookingHelper
@@ -8,6 +11,7 @@ from mappers.FlightMapper import FlightMapper
 from mappers.UserMapper import UserMapper
 from models.Booking import Booking
 from services.CrudService import CrudService, Mapper, Helper
+from datetime import datetime, timezone, timedelta
 
 
 class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
@@ -65,6 +69,15 @@ class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
 
         flight = self.flight_helper.read_one_by_id(booking_json.get("flight_id"), 'json_files/flights.json')
         flight = self.flight_mapper.from_json(flight)
+
+        current_time_utc = datetime.now(timezone.utc)
+        offset = timedelta(hours=2)  # Ajoutez ici le décalage horaire approprié
+
+        local_time = current_time_utc + offset
+
+
+        if flight.departure_time < local_time:
+            return 'impossible de reserver un vol qui a deja décollé'
 
         booking_seat = self.book_seat(booking_json.get("seat_number"), flight)
 

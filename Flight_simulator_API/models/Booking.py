@@ -13,16 +13,15 @@ class Booking(BaseModel):
     and a 'flight' attribute representing the flight the booking is for.
     """
 
-    def __init__(self, date_of_booking=None, seat=None, user=None, flight=None):
+    def __init__(self, seat=None, user=None, flight=None):
         """
         Initializes a new instance of the Booking class.
-        :param date_of_booking: Date of booking.
         :param seat: Seat booked by the user.
         :param user: User who made the booking.
         :param flight: Flight the booking is for.
         """
         super().__init__()
-        self.date_of_booking = date_of_booking
+        # self.date_of_booking = date_of_booking
         self.seat = seat
         self.user = user
         self.flight = flight

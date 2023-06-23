@@ -2,7 +2,7 @@
     {
         "id": 1,
         "created_at": 1687552067,
-        "updated_at": 1687552067,
+        "updated_at": 1687557317,
         "pilot": {
             "id": 2,
             "created_at": 1685699451,
@@ -70,6 +70,380 @@
         },
         "departure_time": "2023-06-24T18:00:00+00:00",
         "arrival_time": "2023-06-24T18:00:00+00:00",
+        "seats": [
+            {
+                "seat_number": 1,
+                "seat_class": "business",
+                "occupied": true
+            },
+            {
+                "seat_number": 2,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 3,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 4,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 5,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 6,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 7,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 8,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 9,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 10,
+                "seat_class": "business",
+                "occupied": false
+            },
+            {
+                "seat_number": 11,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 12,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 13,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 14,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 15,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 16,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 17,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 18,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 19,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 20,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 21,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 22,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 23,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 24,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 25,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 26,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 27,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 28,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 29,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 30,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 31,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 32,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 33,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 34,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 35,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 36,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 37,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 38,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 39,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 40,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 41,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 42,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 43,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 44,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 45,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 46,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 47,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 48,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 49,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 50,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 51,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 52,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 53,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 54,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 55,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 56,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 57,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 58,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 59,
+                "seat_class": "economy",
+                "occupied": false
+            },
+            {
+                "seat_number": 60,
+                "seat_class": "economy",
+                "occupied": false
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "created_at": 1687552863,
+        "updated_at": 1687552863,
+        "pilot": {
+            "id": 2,
+            "created_at": 1685699451,
+            "updated_at": 1685699451,
+            "last_name": "sakr",
+            "first_name": "hadi",
+            "email": "pilot1234@gmail.com",
+            "password": "$2b$12$uKW8sAPTwoWsBS7AW1BYcudrxFfrgfkt.dh.ItafHPqhV8.FDANDm",
+            "address": {
+                "street": "rue de test",
+                "street_number": 1,
+                "city": "test",
+                "postal_code": "1234",
+                "country": "test"
+            },
+            "roles": [
+                "PILOT",
+                "USER"
+            ],
+            "license_number": "12345"
+        },
+        "aircraft": {
+            "id": 5,
+            "created_at": 1687543101,
+            "updated_at": 1687543101,
+            "model": "F-16",
+            "available": null,
+            "company_name": "Army",
+            "max_speed": 8000,
+            "fuel_tank": 500,
+            "business_capacity": 10,
+            "economy_capacity": 50
+        },
+        "itinerary": {
+            "id": 2,
+            "created_at": 1687552767,
+            "updated_at": 1687552767,
+            "departure_airport": {
+                "id": 7,
+                "created_at": 1687543163,
+                "updated_at": 1687543163,
+                "name": "Beyrouth",
+                "address": {
+                    "street": "Rue de test",
+                    "street_number": 10,
+                    "city": "Beyrouth",
+                    "postal_code": 8000,
+                    "country": "Liban"
+                }
+            },
+            "arrival_airport": {
+                "id": 5,
+                "created_at": 1687543119,
+                "updated_at": 1687543119,
+                "name": "Bruxelles",
+                "address": {
+                    "street": "Rue du Zaventem",
+                    "street_number": 110,
+                    "city": "Bruxelles",
+                    "postal_code": 1000,
+                    "country": "Belgique"
+                }
+            },
+            "distance": 3143.5973094121264
+        },
+        "departure_time": "2023-06-23T22:42:00+00:00",
+        "arrival_time": "2023-06-23T23:05:34.618789+00:00",
         "seats": [
             {
                 "seat_number": 1,

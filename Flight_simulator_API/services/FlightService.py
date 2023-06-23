@@ -1,4 +1,5 @@
-from datetime import datetime
+import json
+from datetime import datetime, timezone, timedelta
 from typing import Optional, List
 
 from flask import request
@@ -143,10 +144,14 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
 
         departure_time = datetime.fromisoformat(flight_json.get("departure_time"))
         arrival_time = datetime.fromisoformat(flight_json.get("arrival_time"))
-        current_time = datetime.now()
+        current_time = datetime.now(timezone.utc)
+        current_time_utc = datetime.now(timezone.utc)
+        offset = timedelta(hours=2)  # Ajoutez ici le décalage horaire approprié
+
+        local_time = current_time_utc + offset
 
         duration = (arrival_time - departure_time).total_seconds()
-        elapsed_time = (current_time - departure_time).total_seconds()
+        elapsed_time = (local_time - departure_time).total_seconds()
 
         if elapsed_time < 0 or elapsed_time > duration:
             return None  # The flight has not yet started or has already ended
@@ -154,14 +159,23 @@ class FlightService(CrudService[Flight, FlightMapper, FlightHelper]):
         traveled_distance_ratio = elapsed_time / duration
 
         start_latitude, start_longitude = Itinerary.get_coordinates(
-            flight_json.get("itinerary").get("departure_airport"))
-        end_latitude, end_longitude = Itinerary.get_coordinates(flight_json.get("itinerary").get("arrival_airport"))
+            flight_json.get("itinerary")
+            .get("departure_airport")
+            .get("name")
+        )
+        end_latitude, end_longitude = Itinerary\
+            .get_coordinates(flight_json.get("itinerary")
+                             .get("arrival_airport")
+                             .get("name"))
 
         current_latitude = start_latitude + traveled_distance_ratio * (end_latitude - start_latitude)
         current_longitude = start_longitude + traveled_distance_ratio * (end_longitude - start_longitude)
 
+        geolocator = Nominatim(user_agent="myGeocoder")
+        location = geolocator.reverse(f"{current_latitude}, {current_longitude}")
+        location_json = json.dumps(location.raw)
+
         return {
-            "latitude": current_latitude,
-            "longitude": current_longitude,
+            "location": location_json,
             "current_time": current_time.isoformat()
         }

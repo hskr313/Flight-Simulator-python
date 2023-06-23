@@ -1,6 +1,7 @@
 from geopy import Nominatim
 from geopy.distance import geodesic
 
+from models.Airport import Airport
 from models.BaseModel import BaseModel
 
 
@@ -21,20 +22,19 @@ class Itinerary(BaseModel):
         """
         super().__init__()
 
-        self.departure_airport = departure_airport
-        self.arrival_airport = arrival_airport
+        self.departure_airport: Airport = departure_airport
+        self.arrival_airport: Airport = arrival_airport
         if self.departure_airport and self.arrival_airport:
-            self.distance = Itinerary.calculate_distance(self.departure_airport, self.arrival_airport)
-
+            self.distance = Itinerary.calculate_distance(self.departure_airport.name, self.arrival_airport.name)
     @staticmethod
-    def get_coordinates(airport_name):
+    def get_coordinates(airport_city_name):
         """
         Retrieves the coordinates for a given airport.
-        :param airport_name: The name of the airport to find the coordinates for.
+        :param airport_city_name: The name of the city where the airport is located.
         :return: The latitude and longitude of the airport.
         """
         geolocator = Nominatim(user_agent="flight_Sim_app")
-        location = geolocator.geocode(airport_name)
+        location = geolocator.geocode(airport_city_name + " Airport")
         if location is None:
             return None
         return location.latitude, location.longitude
