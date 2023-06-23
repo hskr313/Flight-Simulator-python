@@ -9,9 +9,10 @@ from services.AuthService import AuthService
 
 
 class AuthController:
-    def __init__(self, user_service: UserService, auth_service: AuthService):
+    def __init__(self, user_service: UserService, auth_service: AuthService, user_mapper: UserMapper):
         self.user_service = user_service
         self.auth_service = auth_service
+        self.user_mapper = user_mapper
         self.blueprint = Blueprint("auth", __name__)
         self.blueprint.add_url_rule('/login', 'login', self.login, methods=['POST'])
         self.blueprint.add_url_rule('/register', 'register', self.register, methods=['POST'])
@@ -30,7 +31,7 @@ class AuthController:
 
         new_user = self.user_mapper.from_json(data)
 
-        saved_user = self.user_helper.save(new_user, self.file_path)
+        saved_user = self.user_service.save(new_user)
         safe_user = SafeUser(saved_user).to_json()
         return jsonify(safe_user), 201
 
