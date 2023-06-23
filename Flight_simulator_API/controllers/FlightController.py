@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 
+from mappers.FlightMapper import FlightMapper
 from services.FlightService import FlightService
 from utils.RequestRole import requires_roles
 
@@ -18,6 +19,7 @@ class FlightController:
         :param flight_service: Service responsible for flight-related operations.
         """
         self.flight_service = flight_service
+        self.flight_mapper = FlightMapper()
         self.blueprint = Blueprint('flight', __name__)
         self.blueprint.add_url_rule('/flights', "get_all_flights", self.get_all_action, methods=['GET'])
         self.blueprint.add_url_rule('/flight/<int:flight_id>', "get_flight_by_id", self.get_one_by_id_action, methods=['GET'])

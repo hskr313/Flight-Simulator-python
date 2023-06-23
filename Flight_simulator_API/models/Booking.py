@@ -27,8 +27,3 @@ class Booking(BaseModel):
         self.user = user
         self.flight = flight
 
-    #   TODO faire le choix des places dans une reservation
-
-    #   TODO faire le moyen de paiements suivant le calcul d'itineraires
-
-    #   TODO iplementer les services de booking

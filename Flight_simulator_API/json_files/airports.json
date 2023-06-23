@@ -1,16 +1,28 @@
 [
-  {
-      "id": 1,
-      "name": "Charles De Gaulle",
-      "address": "Roissy-en-France",
-      "runways": 4,
-      "itinerary": []
-  },
-  {
-      "id": 2,
-      "name": "Beyrouth airport",
-      "address": "Beyrouth",
-      "runways": 4,
-      "itinerary": []
-  }
+    {
+        "id": 1,
+        "name": "Charles De Gaulle",
+        "address": "Roissy-en-France",
+        "runways": 4,
+        "itinerary": []
+    },
+    {
+        "id": 2,
+        "name": "Beyrouth airport",
+        "address": "Beyrouth",
+        "runways": 4,
+        "itinerary": []
+    },
+    {
+        "id": 3,
+        "created_at": 1687541210,
+        "updated_at": 1687541210,
+        "model": "Boeing 777",
+        "available": null,
+        "company_name": "Ryanair",
+        "max_speed": 666,
+        "fuel_tank": 500,
+        "business_capacity": null,
+        "economy_capacity": null
+    }
 ]

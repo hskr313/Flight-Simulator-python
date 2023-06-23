@@ -74,7 +74,7 @@ booking_service = BookingService(
     booking_file_path
 )
 airport_service = AirportService(helper=airport_helper, mapper=airport_mapper, file_path='json_files/airports.json')
-aircraft_service = AircraftService(helper=aircraft_helper, mapper=aircraft_mapper, file_path='json_files/airports.json')
+aircraft_service = AircraftService(helper=aircraft_helper, mapper=aircraft_mapper, file_path='json_files/aircrafts.json')
 itinerary_service = ItineraryService(helper=itinerary_helper, mapper=itinerary_mapper, file_path='json_files/itineraries.json')
 
 

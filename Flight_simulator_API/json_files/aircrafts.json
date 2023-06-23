@@ -1,12 +1,26 @@
 [
-  {
-      "id": 1,
-      "model": "Boeing 737",
-      "available": true,
-      "company_name": "Air France",
-      "max_speed": 853,
-      "fuel_tank": 26000,
-      "business_capacity": 12,
-      "economy_capacity": 162
-  }
+    {
+        "id": 1,
+        "created_at": 1687541729,
+        "updated_at": 1687541729,
+        "model": "Boeing 777",
+        "available": null,
+        "company_name": "Ryanair",
+        "max_speed": 666,
+        "fuel_tank": 500,
+        "business_capacity": null,
+        "economy_capacity": null
+    },
+    {
+        "id": 2,
+        "created_at": 1687541957,
+        "updated_at": 1687541957,
+        "model": "Boeing",
+        "available": null,
+        "company_name": "MEA",
+        "max_speed": 666,
+        "fuel_tank": 500,
+        "business_capacity": 10,
+        "economy_capacity": 50
+    }
 ]

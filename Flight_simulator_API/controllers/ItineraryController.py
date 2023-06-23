@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify
 
+from mappers.ItineraryMapper import ItineraryMapper
 from services.ItineraryService import ItineraryService
 from utils.RequestRole import requires_roles
 
@@ -7,7 +8,8 @@ from utils.RequestRole import requires_roles
 class ItineraryController:
     def __init__(self, itinerary_service: ItineraryService):
         self.itinerary_service = itinerary_service
-        self.blueprint = Blueprint('itinerary', __name__)
+        self.itinerary_mapper = ItineraryMapper()
+        self.blueprint = Blueprint('itineraries', __name__)
         self.blueprint.add_url_rule('/itineraries', 'get_all', self.get_all_action, methods=['GET'])
         self.blueprint.add_url_rule('/itineraries/<int:itinerary_id>', 'get_one_by_id', self.get_one_by_id_action,
                                     methods=['GET'])
@@ -27,6 +29,7 @@ class ItineraryController:
     @requires_roles('ADMIN')
     def save_itinerary_action(self, itinerary_id=None):
         saved_itinerary = self.itinerary_service.save(itinerary_id)
+        saved_itinerary = self.itinerary_mapper.to_json(saved_itinerary)
         return jsonify(saved_itinerary), 201 if not itinerary_id else 200
 
     @requires_roles('ADMIN')

@@ -10,7 +10,7 @@ from models.Booking import Booking
 from services.CrudService import CrudService, Mapper, Helper
 
 
-class xBookingService(CrudService[Booking, BookingMapper, BookingHelper]):
+class BookingService(CrudService[Booking, BookingMapper, BookingHelper]):
     """
     A service class for managing bookings.
 
